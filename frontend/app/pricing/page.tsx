@@ -9,38 +9,38 @@ export default function Pricing() {
     {
       name: "Starter",
       price: "₹999",
-      desc: "Perfect for small businesses getting started",
+      desc: "For small businesses starting with reputation management",
       features: [
-        "Basic ORM Monitoring",
-        "5 Reviews Management",
+        "Review Monitoring",
+        "Basic Analytics",
+        "5 Reviews / month",
         "Email Support",
-        "Monthly Reports",
       ],
       highlight: false,
     },
     {
       name: "Growth",
       price: "₹2,999",
-      desc: "Best for growing brands",
+      desc: "Best for scaling brands & serious growth",
       features: [
-        "Advanced ORM Tools",
         "Unlimited Reviews",
-        "Priority Support",
-        "Weekly Reports",
+        "AI Reply Generator",
+        "Advanced Analytics",
         "Competitor Tracking",
+        "Priority Support",
       ],
       highlight: true,
     },
     {
       name: "Enterprise",
       price: "Custom",
-      desc: "For large businesses & agencies",
+      desc: "For agencies & large businesses",
       features: [
-        "Full ORM Suite",
+        "Multi-location Management",
         "Dedicated Manager",
         "Custom Integrations",
+        "Full Analytics Suite",
         "24/7 Support",
-        "Advanced Analytics",
       ],
       highlight: false,
     },
@@ -50,87 +50,104 @@ export default function Pricing() {
     <div>
       <Navbar />
 
-      {/* HERO */}
-      <section className="bg-[var(--bg)] pt-32 pb-20 text-center px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)]">
-          Simple & Transparent Pricing
-        </h1>
-        <p className="mt-4 text-[var(--text-secondary)] max-w-xl mx-auto">
-          Choose a plan that fits your business needs. No hidden charges.
-        </p>
+      {/* 🔥 HERO */}
+      <section className="relative bg-[var(--bg)] pt-32 pb-24 px-4 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.15),_transparent_60%)]" />
+
+        <div className="relative max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)]">
+            Simple, Transparent Pricing
+          </h1>
+
+          <p className="mt-4 text-[var(--text-secondary)]">
+            Choose a plan that grows with your business — no hidden fees.
+          </p>
+        </div>
       </section>
 
-      {/* PRICING CARDS */}
-      <section className="bg-[var(--bg-secondary)] py-16 px-4">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+      {/* 🔥 PRICING CARDS */}
+      <section className="bg-[var(--bg-secondary)] py-24 px-4">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
           {plans.map((plan, i) => (
             <div
               key={i}
-              className={`rounded-2xl p-6 border ${
+              className={`group relative rounded-2xl p-8 border transition-all duration-300 ${
                 plan.highlight
-                  ? "border-[var(--accent)] bg-[var(--bg)] shadow-lg scale-105"
-                  : "border-[var(--border)] bg-[var(--bg)]"
+                  ? "bg-[var(--bg)] border-[var(--accent)] shadow-2xl scale-105"
+                  : "bg-[var(--bg)] border-[var(--border)] hover:shadow-xl"
               }`}
             >
-              {/* PLAN NAME */}
-              <h3 className="text-xl font-semibold text-[var(--text-primary)]">
-                {plan.name}
-              </h3>
+              {/* Glow */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-[var(--accent)]/5 to-transparent" />
 
-              {/* PRICE */}
-              <p className="text-3xl font-bold mt-4 text-[var(--text-primary)]">
-                {plan.price}
-                {plan.price !== "Custom" && (
-                  <span className="text-sm text-[var(--text-secondary)]">
-                    /month
-                  </span>
+              <div className="relative">
+                {/* Badge */}
+                {plan.highlight && (
+                  <div className="mb-4 text-xs inline-block px-3 py-1 bg-[var(--accent)] text-white rounded-full">
+                    Most Popular
+                  </div>
                 )}
-              </p>
 
-              {/* DESC */}
-              <p className="text-sm text-[var(--text-secondary)] mt-2">
-                {plan.desc}
-              </p>
+                {/* Name */}
+                <h3 className="text-xl font-semibold text-[var(--text-primary)]">
+                  {plan.name}
+                </h3>
 
-              {/* FEATURES */}
-              <ul className="mt-6 space-y-3">
-                {plan.features.map((f, idx) => (
-                  <li
-                    key={idx}
-                    className="text-sm text-[var(--text-secondary)] flex gap-2"
-                  >
-                    ✅ {f}
-                  </li>
-                ))}
-              </ul>
+                {/* Price */}
+                <p className="text-4xl font-bold mt-4 text-[var(--text-primary)]">
+                  {plan.price}
+                  {plan.price !== "Custom" && (
+                    <span className="text-sm text-[var(--text-secondary)]">
+                      /month
+                    </span>
+                  )}
+                </p>
 
-              {/* CTA */}
-              <button
-                className={`mt-6 w-full py-3 rounded-lg ${
-                  plan.highlight
-                    ? "bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]"
-                    : "border border-[var(--border)] hover:bg-[var(--bg-secondary)]"
-                }`}
-              >
-                {plan.price === "Custom" ? "Contact Us" : "Get Started"}
-              </button>
+                {/* Desc */}
+                <p className="text-sm text-[var(--text-secondary)] mt-3">
+                  {plan.desc}
+                </p>
+
+                {/* Features */}
+                <ul className="mt-8 space-y-3">
+                  {plan.features.map((f, idx) => (
+                    <li
+                      key={idx}
+                      className="text-sm text-[var(--text-secondary)] flex gap-2"
+                    >
+                      <span className="text-[var(--accent)]">✔</span> {f}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <button
+                  className={`mt-8 w-full py-3 rounded-full font-medium transition ${
+                    plan.highlight
+                      ? "bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] shadow-lg"
+                      : "border border-[var(--border)] hover:bg-[var(--bg-secondary)]"
+                  }`}
+                >
+                  {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
+                </button>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* FEATURE COMPARISON */}
-      <section className="bg-[var(--bg)] py-16 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-[var(--text-primary)]">
-            Compare Plans
+      {/* 🔥 FEATURE COMPARISON (UPGRADED) */}
+      <section className="bg-[var(--bg)] py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-[var(--text-primary)] text-center">
+            Compare Features
           </h2>
 
-          <div className="mt-8 overflow-x-auto">
-            <table className="w-full border border-[var(--border)] rounded-xl">
-              <thead className="bg-[var(--bg-secondary)] text-left">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-[var(--border)]">
+            <table className="w-full text-sm">
+              <thead className="bg-[var(--bg-secondary)]">
                 <tr>
-                  <th className="p-4">Feature</th>
+                  <th className="p-4 text-left">Feature</th>
                   <th className="p-4">Starter</th>
                   <th className="p-4">Growth</th>
                   <th className="p-4">Enterprise</th>
@@ -139,14 +156,14 @@ export default function Pricing() {
 
               <tbody>
                 {[
-                  ["Reviews Management", "5", "Unlimited", "Unlimited"],
-                  ["Support", "Email", "Priority", "24/7"],
-                  ["Reports", "Monthly", "Weekly", "Custom"],
+                  ["Reviews", "5", "Unlimited", "Unlimited"],
+                  ["AI Replies", "❌", "✔", "✔"],
                   ["Analytics", "Basic", "Advanced", "Full"],
+                  ["Support", "Email", "Priority", "24/7"],
                 ].map((row, i) => (
                   <tr key={i} className="border-t border-[var(--border)]">
                     {row.map((cell, j) => (
-                      <td key={j} className="p-4 text-sm text-left">
+                      <td key={j} className="p-4 text-center">
                         {cell}
                       </td>
                     ))}
@@ -158,16 +175,17 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[var(--bg-secondary)] py-16 text-center px-4">
-        <h2 className="text-2xl font-bold text-[var(--text-primary)]">
-          Not sure which plan is right?
+      {/* 🔥 CTA */}
+      <section className="bg-[var(--bg-secondary)] py-24 text-center px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">
+          Not Sure Which Plan is Right?
         </h2>
-        <p className="text-[var(--text-secondary)] mt-2">
-          Talk to our team and we’ll guide you.
+
+        <p className="mt-3 text-[var(--text-secondary)]">
+          Talk to our team and we’ll help you choose the best plan.
         </p>
 
-        <button className="mt-6 px-6 py-3 bg-[var(--accent)] text-white rounded-lg hover:bg-[var(--accent-hover)]">
+        <button className="mt-6 px-8 py-3 bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] transition shadow-lg">
           Contact Sales
         </button>
       </section>

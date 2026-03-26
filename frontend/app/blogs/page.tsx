@@ -40,7 +40,6 @@ export default function Blog() {
     fetchBlogs();
   }, []);
 
-  // 🔍 Search
   const fuse = new Fuse(blogs, {
     keys: ["title", "excerpt"],
     threshold: 0.3,
@@ -53,37 +52,46 @@ export default function Blog() {
     <div>
       <Navbar />
 
-      {/* HERO */}
-      <section className="bg-[var(--bg)] pt-32 pb-14 px-4 md:px-6 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)]">
-          Our Blog
-        </h1>
-        <p className="mt-4 text-[var(--text-secondary)]">
-          Insights, tips & strategies for business growth 🚀
-        </p>
+      {/* 🔥 HERO */}
+      <section className="relative bg-[var(--bg)] pt-32 pb-20 px-4 text-center overflow-hidden">
+        {/* Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.15),_transparent_60%)]" />
 
-        {/* SEARCH */}
-        <div className="mt-6 max-w-md mx-auto">
-          <input
-            type="text"
-            placeholder="Search blogs..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full px-4 py-3 border border-[var(--border)] rounded-lg bg-[var(--bg-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-          />
+        <div className="relative max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)]">
+            Insights to Grow Your Reputation 🚀
+          </h1>
+
+          <p className="mt-4 text-[var(--text-secondary)]">
+            Learn how to manage reviews, build trust, and grow your business.
+          </p>
+
+          {/* 🔍 SEARCH (UPGRADED) */}
+          <div className="mt-8 max-w-md mx-auto relative">
+            <input
+              type="text"
+              placeholder="Search articles..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full px-5 py-3 rounded-full border border-[var(--border)] bg-[var(--bg-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] shadow-sm"
+            />
+
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-secondary)]">
+              🔍
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* MAIN */}
-      <section className="bg-[var(--bg-secondary)] py-16 px-4 md:px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          {/* LEFT: BLOG LIST */}
-          <div className="md:col-span-2 space-y-6">
+      {/* 🔥 MAIN */}
+      <section className="bg-[var(--bg-secondary)] py-20 px-4">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+          {/* LEFT */}
+          <div className="md:col-span-2 space-y-8">
             {loading ? (
               <p className="text-[var(--text-secondary)]">Loading blogs...</p>
             ) : filteredBlogs.length === 0 ? (
-              // 🔥 EMPTY STATE
-              <div className="text-center py-16">
+              <div className="text-center py-20">
                 <div className="w-16 h-16 mx-auto flex items-center justify-center rounded-full bg-[var(--accent)]/10 text-2xl">
                   📝
                 </div>
@@ -103,39 +111,60 @@ export default function Blog() {
                 <Link
                   key={blog._id}
                   href={`/blog/${blog.slug}`}
-                  className="block border border-[var(--border)] rounded-xl overflow-hidden bg-[var(--bg)] hover:shadow-md transition"
+                  className="group block"
                 >
-                  {/* IMAGE */}
-                  <div className="h-48 bg-[var(--bg-secondary)] overflow-hidden">
-                    <img
-                      src={blog.coverImage}
-                      alt={blog.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <div className="relative bg-[var(--bg)] border border-[var(--border)] rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
+                    {/* Glow */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-[var(--accent)]/5 to-transparent" />
 
-                  {/* CONTENT */}
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                      {blog.title}
-                    </h3>
+                    {/* IMAGE */}
+                    <div className="h-56 overflow-hidden">
+                      <img
+                        src={blog.coverImage}
+                        alt={blog.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                      />
+                    </div>
 
-                    <p className="text-sm text-[var(--text-secondary)] mt-2 line-clamp-2">
-                      {blog.excerpt}
-                    </p>
+                    {/* CONTENT */}
+                    <div className="p-6 relative">
+                      <p className="text-xs text-[var(--accent)] font-medium mb-2">
+                        BLOG ARTICLE
+                      </p>
 
-                    <p className="text-xs text-[var(--text-secondary)] mt-3">
-                      {new Date(blog.datePublished).toDateString()}
-                    </p>
+                      <h3 className="text-xl font-semibold text-[var(--text-primary)] leading-snug">
+                        {blog.title}
+                      </h3>
+
+                      <p className="text-sm text-[var(--text-secondary)] mt-3 line-clamp-2">
+                        {blog.excerpt}
+                      </p>
+
+                      <div className="mt-4 flex justify-between items-center text-xs text-[var(--text-secondary)]">
+                        <span>
+                          {new Date(blog.datePublished).toDateString()}
+                        </span>
+
+                        <span className="text-[var(--accent)] font-medium">
+                          Read More →
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </Link>
               ))
             )}
           </div>
 
-          {/* RIGHT: CONTACT FORM */}
-          <div className="sticky top-24 h-fit">
-            <ContactForm />
+          {/* RIGHT */}
+          <div className="sticky top-28 h-fit">
+            <div className="bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-4">
+                Get a Free Demo 🚀
+              </h3>
+
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

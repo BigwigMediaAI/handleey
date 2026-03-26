@@ -9,175 +9,143 @@ export default function Solution() {
     <div>
       <Navbar />
 
-      {/* HERO */}
-      <section className="relative bg-[var(--bg)] pt-32 pb-24 px-4 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.15),_transparent_60%)]" />
+      {/* 🔥 HERO (PROBLEM FIRST) */}
+      <section className="relative bg-[var(--bg)] pt-32 pb-28 px-4 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.2),_transparent_60%)]" />
 
-        <div className="relative max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] leading-tight">
-            Turn Reviews Into Growth 🚀
+        <div className="relative max-w-4xl mx-auto">
+          <p className="text-sm text-[var(--accent)] mb-3">
+            The Problem Most Businesses Ignore
+          </p>
+
+          <h1 className="text-4xl md:text-6xl font-bold text-[var(--text-primary)] leading-tight">
+            Your Online Reputation is
+            <br />
+            <span className="text-red-500">Costing You Customers</span>
           </h1>
 
-          <p className="mt-6 text-lg text-[var(--text-secondary)]">
-            Handleey helps you manage your online reputation, convert unhappy
-            customers into loyal ones, and grow your brand trust effortlessly.
+          <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+            Every unanswered review, every low rating, and every missed feedback
+            silently pushes customers toward your competitors.
           </p>
         </div>
       </section>
 
-      {/* PROBLEMS */}
-      <section className="bg-[var(--bg-secondary)] py-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-[var(--text-primary)]">
-            Struggling With Your Online Reputation?
+      {/* 🔥 PAIN SECTION */}
+      <section className="bg-[var(--bg-secondary)] py-28 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+            What’s Actually Happening 👇
           </h2>
 
-          <p className="mt-4 text-[var(--text-secondary)]">
-            These problems silently kill your growth 👇
-          </p>
-
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {[
-              "Negative reviews damaging your brand image",
-              "Low ratings reducing customer trust",
-              "No structured way to collect feedback",
-              "Customers leaving without sharing experience",
-              "Missed opportunities to improve service",
-              "Losing leads to competitors with better reviews",
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="p-6 rounded-xl border border-[var(--border)] bg-[var(--bg)] hover:shadow-md transition"
-              >
-                <p className="text-[var(--text-secondary)] text-sm">
-                  ❌ {item}
-                </p>
-              </div>
-            ))}
+          <div className="mt-12 space-y-6 text-lg text-[var(--text-secondary)]">
+            <p>❌ Customers read negative reviews and leave instantly</p>
+            <p>❌ You don’t reply fast enough — trust drops</p>
+            <p>❌ Ratings stay low even when your service is good</p>
+            <p>❌ You have no idea what customers really feel</p>
+            <p>❌ Competitors outrank you because they manage reviews better</p>
           </div>
         </div>
       </section>
 
-      {/* SOLUTION */}
-      <section className="bg-[var(--bg)] py-20 px-4 text-center">
+      {/* 🔥 TRANSFORMATION */}
+      <section className="py-32 bg-[var(--bg)] px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[var(--text-primary)]">
-            Handleey Solves It All
+          <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] leading-tight">
+            Now Imagine This Instead...
           </h2>
 
-          <p className="mt-4 text-[var(--text-secondary)]">
-            We help you take control of your reputation and turn feedback into
-            growth opportunities.
+          <p className="mt-6 text-lg text-[var(--text-secondary)]">
+            Every review handled instantly. Every customer heard. Every rating
+            improved.
           </p>
 
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            {[
-              "Collect real customer feedback easily",
-              "Improve ratings with smart workflows",
-              "Respond to reviews instantly",
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="p-6 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)]"
-              >
-                <p className="text-[var(--text-primary)] font-medium">
-                  ✅ {item}
-                </p>
-              </div>
-            ))}
+          <div className="mt-12 space-y-4 text-lg text-[var(--text-primary)] font-medium">
+            <p>✅ Every review gets a professional response</p>
+            <p>✅ Negative feedback turns into positive experience</p>
+            <p>✅ Your rating increases consistently</p>
+            <p>✅ Customers trust your brand instantly</p>
           </div>
         </div>
       </section>
 
-      {/* USE CASES */}
-      <section className="bg-[var(--bg-secondary)] py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-[var(--text-primary)] text-center">
-            Built for Every Business
-          </h2>
+      {/* 🔥 SOLUTION */}
+      <section className="py-32 bg-[var(--bg-secondary)] px-4">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          {/* LEFT TEXT */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+              Handleyee Turns Feedback Into Growth
+            </h2>
 
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {/* Local */}
-            <div className="p-6 border border-[var(--border)] rounded-xl bg-[var(--bg)] hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                🏪 Local Businesses
-              </h3>
-              <p className="mt-3 text-sm text-[var(--text-secondary)]">
-                Boost Google ratings, attract more walk-in customers, and build
-                strong local trust.
-              </p>
-            </div>
+            <p className="mt-6 text-[var(--text-secondary)] leading-relaxed">
+              Instead of chasing reviews manually, Handleyee gives you a
+              complete system to manage, respond, and improve your reputation
+              automatically.
+            </p>
 
-            {/* Brands */}
-            <div className="p-6 border border-[var(--border)] rounded-xl bg-[var(--bg)] hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                🏢 Growing Brands
-              </h3>
-              <p className="mt-3 text-sm text-[var(--text-secondary)]">
-                Manage large-scale feedback, improve brand perception, and scale
-                reputation effortlessly.
-              </p>
+            <div className="mt-8 space-y-4 text-[var(--text-secondary)]">
+              <p>✔ One dashboard for all reviews</p>
+              <p>✔ AI-powered instant replies</p>
+              <p>✔ Deep insights into customer sentiment</p>
+              <p>✔ Team workflows for faster action</p>
             </div>
+          </div>
 
-            {/* Agencies */}
-            <div className="p-6 border border-[var(--border)] rounded-xl bg-[var(--bg)] hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                🧑‍💼 Agencies
-              </h3>
-              <p className="mt-3 text-sm text-[var(--text-secondary)]">
-                Handle multiple clients, automate review workflows, and deliver
-                measurable results.
-              </p>
-            </div>
+          {/* RIGHT IMAGE */}
+          <div className="rounded-2xl overflow-hidden border shadow-2xl">
+            <img src="/screenshot/img2.jpeg" />
           </div>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="bg-[var(--bg)] py-20 px-4 text-center">
-        <h2 className="text-3xl font-bold text-[var(--text-primary)]">
-          How It Works
+      {/* 🔥 USE CASES */}
+      <section className="py-28 bg-[var(--bg)] px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+          Built for Businesses That Care About Growth
         </h2>
 
-        <div className="mt-12 grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div className="mt-14 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
-            "Collect Feedback",
-            "Analyze Insights",
-            "Respond to Reviews",
-            "Grow Your Reputation",
-          ].map((step, i) => (
-            <div key={i}>
-              <div className="w-12 h-12 mx-auto rounded-full bg-[var(--accent)] text-white flex items-center justify-center font-bold">
-                {i + 1}
-              </div>
-
-              <p className="mt-4 text-sm text-[var(--text-secondary)]">
-                {step}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* BENEFITS */}
-      <section className="bg-[var(--bg-secondary)] py-20 px-4 text-center">
-        <h2 className="text-3xl font-bold text-[var(--text-primary)]">
-          Why Businesses Choose Handleey
-        </h2>
-
-        <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {[
-            "⭐ Increase ratings & reviews",
-            "🤝 Build customer trust",
-            "📈 Boost conversions & revenue",
+            {
+              title: "🏨 Hotels",
+              desc: "Improve ratings across booking platforms and attract more guests.",
+            },
+            {
+              title: "🍽 Restaurants",
+              desc: "Turn feedback into better experiences and repeat customers.",
+            },
+            {
+              title: "📊 Agencies",
+              desc: "Manage multiple clients and scale reputation services.",
+            },
           ].map((item, i) => (
             <div
               key={i}
-              className="p-6 border border-[var(--border)] rounded-xl bg-[var(--bg)] hover:shadow-md transition"
+              className="group relative bg-[var(--bg-secondary)] border border-[var(--border)] rounded-2xl p-8 hover:shadow-xl transition"
             >
-              <p className="text-[var(--text-primary)] font-medium">{item}</p>
+              <h3 className="font-semibold text-[var(--text-primary)]">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-sm text-[var(--text-secondary)]">
+                {item.desc}
+              </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 🔥 RESULT */}
+      <section className="py-28 bg-[var(--bg-secondary)] px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+          The Result?
+        </h2>
+
+        <div className="mt-12 space-y-4 text-xl font-medium text-[var(--text-primary)]">
+          <p>⭐ Higher ratings</p>
+          <p>🤝 Strong customer trust</p>
+          <p>📈 More conversions & revenue</p>
         </div>
       </section>
 
