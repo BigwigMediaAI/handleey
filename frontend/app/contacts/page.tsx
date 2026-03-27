@@ -70,7 +70,7 @@ export default function Contact() {
 
       {/* 🔥 MAIN SECTION (CONTENT + FORM) */}
       <section className="bg-[var(--bg)] py-28 px-4">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           {/* LEFT */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] leading-tight">
@@ -110,7 +110,7 @@ export default function Contact() {
 
       {/* 🔥 MAP */}
       <section className="bg-[var(--bg-secondary)] py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] text-center mb-10">
             Find Us
           </h2>

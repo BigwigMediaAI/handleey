@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiX } from "react-icons/si";
 
@@ -123,13 +124,8 @@ export default function Footer() {
             </p>
 
             <p className="text-sm text-[var(--text-secondary)] mt-2">
-              +91 9876543210
+              +91 8368573451
             </p>
-
-            {/* Small CTA */}
-            <button className="mt-5 px-5 py-2 border border-[var(--border)] rounded-full text-sm hover:bg-[var(--bg)] transition">
-              Contact Us
-            </button>
           </div>
         </div>
 

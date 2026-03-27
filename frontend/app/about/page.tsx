@@ -49,7 +49,7 @@ export default function About() {
       <section className="relative bg-[var(--bg)] pt-32 pb-24 px-4 md:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.15),_transparent_60%)]" />
 
-        <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT */}
           <div>
             <p className="text-sm font-medium text-[var(--accent)] mb-3">
@@ -113,11 +113,11 @@ export default function About() {
       </section>
 
       {/* 🔥 MISSION / VISION (UPGRADED) */}
-      <section className="relative bg-[var(--bg-secondary)] py-28 px-4 md:px-6 overflow-hidden">
+      <section className="relative bg-[var(--bg-secondary)] py-28  overflow-hidden">
         {/* Background glow */}
         <div className="absolute top-0 left-0 w-72 h-72 bg-[var(--accent)] opacity-10 blur-3xl rounded-full" />
 
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative">
           {/* LEFT SIDE */}
           <div>
             <p className="text-sm text-[var(--accent)] font-medium mb-3">
@@ -195,8 +195,8 @@ export default function About() {
       </section>
 
       {/* 🔥 WHY HANDLEYEE */}
-      <section className="bg-[var(--bg)] py-24 px-4 md:px-6">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="bg-[var(--bg)] py-24">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
             Why Businesses Choose Handleyee
           </h2>
