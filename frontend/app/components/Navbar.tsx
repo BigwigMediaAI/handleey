@@ -69,12 +69,14 @@ export default function Navbar() {
             Contact
           </a>
 
-          <button
-            onClick={() => setIsPopupOpen(true)}
-            className="px-5 py-2 text-sm font-medium bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] transition transform hover:scale-105"
+          <a
+            href="https://wa.me/918368573451?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Handleey.%20I%E2%80%99d%20like%20to%20know%20how%20it%20can%20help%20me."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 text-sm font-medium bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] transition transform hover:scale-105 text-center"
           >
-            Book Demo
-          </button>
+            Chat on WhatsApp
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -88,35 +90,73 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[500px]" : "max-h-0"
+        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        <div className="px-4 pb-6 flex flex-col gap-4 bg-[var(--bg)]/95 backdrop-blur-lg border-t border-[var(--border)]">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+        {/* Background Blur */}
+        <div
+          className="absolute inset-0 bg-black/40 backdrop-blur-md"
+          onClick={() => setIsOpen(false)}
+        />
+
+        {/* Menu Content */}
+        <div
+          className={`relative z-50 flex flex-col h-full bg-[var(--bg)]/95 backdrop-blur-xl transform transition-transform duration-300 ${
+            isOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          {/* 🔥 TOP BAR */}
+          <div className="flex items-center justify-between px-6 h-16 border-b border-[var(--border)]">
+            {/* Logo */}
+            <div className="flex items-center gap-2 font-bold text-lg text-[var(--text-primary)]">
+              <span className="bg-[var(--primary)] text-white px-2 py-1 rounded-md">
+                H
+              </span>
+              Handleey
+            </div>
+
+            {/* Close Button */}
+            <button
               onClick={() => setIsOpen(false)}
+              className="text-[var(--text-primary)]"
             >
-              {link.name}
+              <X size={24} />
+            </button>
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-col gap-6 px-6 py-8 text-lg">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="font-medium text-[var(--text-primary)]"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+
+            <a
+              href="/contacts"
+              className="font-medium text-[var(--text-primary)]"
+            >
+              Contact
             </a>
-          ))}
+          </div>
 
-          <a
-            href="/contacts"
-            className="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-          >
-            Contact
-          </a>
-
-          <button
-            onClick={() => setIsPopupOpen(true)}
-            className="mt-2 py-2 bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] transition"
-          >
-            Book Demo
-          </button>
+          {/* Bottom CTA */}
+          <div className="mt-auto px-6 pb-8">
+            <a
+              href="https://wa.me/918368573451?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Handleey.%20I%E2%80%99d%20like%20to%20know%20how%20it%20can%20help%20me."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center py-3 bg-[var(--accent)] text-white rounded-full font-medium hover:bg-[var(--accent-hover)] transition"
+            >
+              Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </div>
 

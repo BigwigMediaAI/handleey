@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function FinalCTA() {
   return (
     <section className="relative py-20 px-4 md:px-6 overflow-hidden">
@@ -20,13 +22,21 @@ export default function FinalCTA() {
 
         {/* CTA Buttons */}
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <button className="px-6 py-3 bg-white text-black rounded-full font-medium hover:scale-105 transition">
-            Book Demo 🚀
-          </button>
+          <a
+            href="https://wa.me/918368573451?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Handleey.%20I%E2%80%99d%20like%20to%20know%20how%20it%20can%20help%20me."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-white text-black rounded-full font-medium hover:scale-105 transition"
+          >
+            Chat on WhatsApp
+          </a>
 
-          <button className="px-6 py-3 border border-white/50 rounded-full font-medium hover:bg-white/10 transition">
+          <Link
+            href="/product"
+            className="px-6 py-3 border border-white/50 rounded-full font-medium hover:bg-white/10 transition"
+          >
             Explore Product
-          </button>
+          </Link>
         </div>
 
         {/* Trust Line */}

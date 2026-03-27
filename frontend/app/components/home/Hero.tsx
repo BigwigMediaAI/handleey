@@ -36,18 +36,20 @@ export default function Hero() {
 
           {/* 🔥 CTA */}
           <div className="mt-8 flex flex-wrap gap-4">
-            <button
-              onClick={() => setIsPopupOpen(true)}
-              className="px-7 py-3 bg-[var(--accent)] text-white rounded-full font-medium hover:bg-[var(--accent-hover)] transition transform hover:scale-105 shadow-lg"
+            <a
+              href="https://wa.me/918368573451?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Handleey.%20I%E2%80%99d%20like%20to%20know%20how%20it%20can%20help%20me."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center px-6 py-3 bg-[var(--accent)] text-white rounded-full font-medium hover:bg-[var(--accent-hover)] transition"
             >
-              🚀 Book Free Demo
-            </button>
+              Chat on WhatsApp
+            </a>
 
             <Link
-              href="/products"
+              href="/product"
               className="px-7 py-3 border border-[var(--border)] rounded-full font-medium text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition"
             >
-              Explore Platform →
+              Explore Product →
             </Link>
           </div>
 
