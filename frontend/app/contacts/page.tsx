@@ -36,7 +36,7 @@ export default function Contact() {
             },
             {
               title: "Call Us",
-              value: "+91 9876543210",
+              value: "+91 8368573451",
               icon: "📱",
             },
             {

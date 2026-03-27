@@ -52,7 +52,7 @@ export default function Product() {
           points={[
             "Auto reply generation",
             "Custom tone & style",
-            "Multi-language support",
+
             "Save hours daily",
           ]}
         />
