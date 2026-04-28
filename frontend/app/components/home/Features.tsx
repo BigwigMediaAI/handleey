@@ -1,167 +1,190 @@
 "use client";
 
 import {
-  BarChart3,
-  Bell,
-  MessageSquare,
-  Star,
-  Activity,
-  Globe,
-  Users,
-  Brain,
+  ShieldCheck,
+  Sparkles,
+  Monitor,
+  Share2,
+  Layers,
+  QrCode,
 } from "lucide-react";
-import { Link, TrendingUp } from "lucide-react";
 
-const features = [
+const benefits = [
   {
-    icon: <Star size={20} />,
-    title: "Unified Review Inbox",
-    desc: "Manage Google, TripAdvisor & all reviews from one centralized dashboard.",
+    icon: <ShieldCheck size={22} />,
+    title: "Negative Reviews Protection",
+    desc: "Send negative reviews privately and make positive reviews public, giving you full control over your online reputation.",
   },
   {
-    icon: <Brain size={20} />,
-    title: "AI-Powered Replies",
-    desc: "Generate smart, brand-aligned responses instantly with customizable tone.",
+    icon: <Sparkles size={22} />,
+    title: "AI ChatGPT Review Reply",
+    desc: "Respond personally to every customer with AI ChatGPT. Boost satisfaction with customized replies tailored to each interaction.",
   },
   {
-    icon: <Activity size={20} />,
-    title: "Sentiment Intelligence",
-    desc: "Understand customer emotions with AI-driven sentiment & feedback insights.",
+    icon: <Monitor size={22} />,
+    title: "Website Review Widgets",
+    desc: "Add review widgets to your website and make it easy for customers to leave feedback.",
   },
   {
-    icon: <BarChart3 size={20} />,
-    title: "Advanced Analytics",
-    desc: "Track ratings, trends, performance & growth with real-time dashboards.",
+    icon: <Share2 size={22} />,
+    title: "Share on Social Media",
+    desc: "Share positive reviews on social media to increase brand visibility and attract new customers.",
   },
   {
-    icon: <Users size={20} />,
-    title: "Team & Department Workflow",
-    desc: "Assign reviews to teams, enable approvals & streamline responses.",
+    icon: <Layers size={22} />,
+    title: "All Reviews In One Place",
+    desc: "Monitor and manage reviews from multiple sources (e.g., Google and Facebook) at one place.",
   },
   {
-    icon: <Globe size={20} />,
-    title: "Multi-Platform Integration",
-    desc: "Connect Google, Facebook, Instagram, LinkedIn & more seamlessly.",
-  },
-  {
-    icon: <Bell size={20} />,
-    title: "Real-Time Alerts",
-    desc: "Get notified instantly when new reviews or comments are posted.",
-  },
-  {
-    icon: <MessageSquare size={20} />,
-    title: "Social Engagement",
-    desc: "Reply to comments & messages across all platforms from one place.",
-  },
-];
-
-const steps = [
-  {
-    icon: <Link size={22} />,
-    title: "Connect Your Platforms",
-    desc: "Integrate Google, TripAdvisor & social channels in just a few clicks.",
-  },
-  {
-    icon: <BarChart3 size={22} />,
-    title: "Monitor & Analyze",
-    desc: "Track reviews, sentiment, competitors & performance in real-time.",
-  },
-  {
-    icon: <TrendingUp size={22} />,
-    title: "Respond & Grow",
-    desc: "Use AI + team workflows to reply faster and improve your ratings.",
+    icon: <QrCode size={22} />,
+    title: "QR Code Stand Tap Or Scan",
+    desc: "Allow customers to easily leave a review by scanning a QR code or tapping an NFC standee.",
   },
 ];
 
 export default function Features() {
   return (
-    <div>
-      {/* 🔥 FEATURES SECTION */}
-      <section className="relative bg-[var(--bg-secondary)] py-24 px-4 md:px-6 overflow-hidden">
-        {/* Glow */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-[var(--accent)] opacity-10 blur-3xl rounded-full" />
+    <>
+      <section className="bg-[#f5f5f5] py-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          {/* TOP HEADING */}
+          <h3 className="text-xl md:text-2xl font-semibold text-gray-800">
+            Integrates with Google and 20+ Review Platform
+          </h3>
 
-        <div className="max-w-7xl mx-auto text-center relative">
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
-            Everything You Need to Manage Your Reputation
+          {/* MAIN TITLE */}
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
+            Key Benefits Of Handlyee
           </h2>
-
-          <p className="mt-4 text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-            From AI-powered replies to deep analytics and multi-platform
-            management — Handleyee gives you complete control over your brand
-            reputation.
-          </p>
 
           {/* GRID */}
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, index) => (
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {benefits.map((item) => (
               <div
-                key={index}
-                className="group relative bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6 text-left hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                key={item.title}
+                className="bg-[#eeeeee] p-8 text-left rounded-md hover:shadow-md transition"
               >
-                {/* Glow hover */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-[var(--accent)]/5 to-transparent" />
-
-                <div className="relative">
-                  <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-[var(--accent)]/10 text-[var(--accent)] mb-4">
-                    {feature.icon}
-                  </div>
-
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                    {feature.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm text-[var(--text-secondary)] leading-relaxed">
-                    {feature.desc}
-                  </p>
+                {/* ICON BOX */}
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center bg-yellow-500 text-black rounded">
+                  {item.icon}
                 </div>
+
+                {/* TITLE */}
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+
+                {/* DESC */}
+                <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* 🔥 HOW IT WORKS */}
-      <section className="relative bg-[var(--bg)] py-24 px-4 md:px-6">
+      <section className="py-24 px-4" style={{ background: "var(--bg)" }}>
         <div className="max-w-6xl mx-auto text-center">
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
-            How Handleyee Works
+          {/* TITLE */}
+          <h2
+            className="text-3xl md:text-5xl font-bold"
+            style={{ color: "var(--text-primary)" }}
+          >
+            Your New Reputation Management Platform
           </h2>
 
-          <p className="mt-4 text-[var(--text-secondary)] max-w-2xl mx-auto">
-            A simple 3-step workflow to turn customer feedback into growth.
+          {/* SUBTEXT (optional but recommended) */}
+          <p
+            className="mt-4 text-lg max-w-2xl mx-auto"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Manage reviews, automate responses, and grow your brand — all from
+            one powerful dashboard.
           </p>
 
-          {/* STEPS */}
-          <div className="mt-16 grid gap-10 md:grid-cols-3 relative">
-            {steps.map((step, index) => (
-              <div key={index} className="relative group">
-                {/* Card */}
-                <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-2xl p-8 hover:shadow-xl transition group-hover:-translate-y-1">
-                  {/* Step number */}
-                  <div className="text-xs font-medium text-[var(--accent)] mb-3">
-                    STEP {index + 1}
-                  </div>
-
-                  <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-[var(--accent)]/10 text-[var(--accent)] mb-5">
-                    {step.icon}
-                  </div>
-
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                    {step.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm text-[var(--text-secondary)] leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* IMAGE */}
+          <div className="mt-14">
+            <div
+              className="rounded-2xl overflow-hidden shadow-xl"
+              style={{ border: "1px solid var(--border)" }}
+            >
+              <img
+                src="/aboutHero.png" // replace with your image
+                alt="Reputation Platform Dashboard"
+                className="w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
-    </div>
+
+      <section
+        className="py-24 px-4"
+        style={{ background: "var(--bg-secondary)" }}
+      >
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          {/* LEFT IMAGE */}
+          <div className="relative">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="/screenshot/img (1).jpeg"
+                alt="NFC Card"
+                className="w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* RIGHT CONTENT */}
+          <div className="space-y-6">
+            {/* small line */}
+            <div
+              className="w-12 h-[3px]"
+              style={{ background: "var(--accent)" }}
+            />
+
+            {/* TITLE */}
+            <h2
+              className="text-3xl md:text-4xl font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
+              NFC Card and Stand
+            </h2>
+
+            {/* DESCRIPTION */}
+            <p
+              className="text-lg leading-relaxed"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Introducing the Handlyee NFC QR Code Stand, the ultimate tool for
+              collecting valuable feedback from your customers. With just a tap
+              or a scan, customers can leave a review in just 15 seconds, making
+              it easier than ever to gather feedback and improve your business.
+            </p>
+
+            {/* CTA + CONTACT */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
+              <a
+                href="https://api.whatsapp.com/send?phone=918368573451&text=Hello,%20I'm%20interested%20in%20starting%20a%20free%20trial."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-md font-semibold transition inline-block"
+                style={{
+                  background: "var(--accent)",
+                  color: "#000",
+                }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.background = "var(--accent-hover)")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.background = "var(--accent)")
+                }
+              >
+                START FREE TRIAL
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

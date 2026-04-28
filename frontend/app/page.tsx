@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Hero from "./components/home/Hero";
 import Features from "./components/home/Features";
 import Testimonials from "./components/home/Testimonial";
-import FinalCTA from "./components/FinalCTA";
+import Plans from "./components/home/Plans";
 import Footer from "./components/Footer";
+import FAQ from "./components/home/FAQ";
 
 export default function Home() {
   return (
@@ -13,7 +13,8 @@ export default function Home() {
       <Hero />
       <Features />
       <Testimonials />
-      <FinalCTA />
+      <Plans />
+      <FAQ />
       <Footer />
     </div>
   );

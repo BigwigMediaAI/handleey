@@ -2,25 +2,24 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import ContactPopup from "./Popup";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "About", href: "/about" },
-  { name: "Product", href: "/product" },
-  { name: "Solutions", href: "/solution" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Blogs", href: "/blogs" },
+  { name: "Home", href: "#home" },
+  { name: "Features", href: "#features" },
+  { name: "Testimonials", href: "#demo" },
+  { name: "Plans", href: "#pricing" },
+  { name: "FAQ", href: "#faq" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -28,142 +27,166 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[var(--bg)]/80 backdrop-blur-lg border-b border-[var(--border)] shadow-sm"
-          : "bg-transparent"
-      }`}
+      className="fixed w-full z-50 transition-all duration-300"
+      style={{
+        background: isScrolled ? "var(--bg)" : "transparent",
+        borderBottom: isScrolled ? "1px solid var(--border)" : "none",
+        backdropFilter: isScrolled ? "blur(10px)" : "none",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16">
-        {/* Logo */}
+      <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20">
+        {/* LOGO */}
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold text-lg cursor-pointer text-[var(--text-primary)]"
+          className="flex items-center gap-3 font-bold text-lg"
+          style={{ color: "var(--text-primary)" }}
         >
-          <span className="bg-[var(--primary)] text-white px-2 py-1 rounded-md">
+          <div
+            className="h-10 w-10 rounded-xl flex items-center justify-center text-sm font-bold"
+            style={{
+              background: "var(--accent)",
+              color: "#000",
+            }}
+          >
             H
-          </span>
-          Handleey
+          </div>
+          Handlyee
         </Link>
 
-        {/* Desktop Nav */}
+        {/* DESKTOP MENU */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition relative group"
+              className="text-sm font-medium transition relative"
+              style={{ color: "var(--text-secondary)" }}
             >
               {link.name}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[var(--accent)] transition-all duration-300 group-hover:w-full"></span>
+
+              {/* underline hover */}
+              <span
+                className="absolute left-0 -bottom-1 h-[2px] w-0 transition-all duration-300"
+                style={{
+                  background: "var(--accent)",
+                }}
+              />
             </a>
           ))}
         </nav>
 
-        {/* Right Section */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* CTA */}
+        <div className="hidden md:flex items-center">
           <a
-            href="/contacts"
-            className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-          >
-            Contact
-          </a>
-
-          <a
-            href="https://wa.me/918368573451?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Handleey.%20I%E2%80%99d%20like%20to%20know%20how%20it%20can%20help%20me."
+            href="https://api.whatsapp.com/send?phone=918368573451"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 text-sm font-medium bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-hover)] transition transform hover:scale-105 text-center"
+            className="px-5 py-2.5 rounded-md text-sm font-semibold transition"
+            style={{
+              background: "var(--accent)",
+              color: "#000",
+            }}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.background = "var(--accent-hover)")
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.background = "var(--accent)")
+            }
           >
-            Chat on WhatsApp
+            Start Free Trial
           </a>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* MOBILE ICON */}
         <button
-          className="md:hidden text-[var(--text-primary)]"
+          className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
+          style={{ color: "var(--text-primary)" }}
         >
-          {isOpen ? <X /> : <Menu />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
+      {/* MOBILE MENU */}
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        className={`md:hidden fixed inset-0 z-40 transition ${
+          isOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
-        {/* Background Blur */}
+        {/* OVERLAY */}
         <div
-          className="absolute inset-0 bg-black/40 backdrop-blur-md"
+          className="absolute inset-0"
+          style={{ background: "rgba(0,0,0,0.4)" }}
           onClick={() => setIsOpen(false)}
         />
 
-        {/* Menu Content */}
+        {/* DRAWER */}
         <div
-          className={`relative z-50 flex flex-col h-full bg-[var(--bg)]/95 backdrop-blur-xl transform transition-transform duration-300 ${
-            isOpen ? "translate-y-0" : "-translate-y-full"
+          className={`absolute top-0 left-0 h-full w-[80%] max-w-sm p-6 transition-transform duration-300 ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
+          style={{
+            background: "var(--bg)",
+            borderRight: "1px solid var(--border)",
+          }}
         >
-          {/* 🔥 TOP BAR */}
-          <div className="flex items-center justify-between px-6 h-16 border-b border-[var(--border)]">
-            {/* Logo */}
-            <div className="flex items-center gap-2 font-bold text-lg text-[var(--text-primary)]">
-              <span className="bg-[var(--primary)] text-white px-2 py-1 rounded-md">
+          {/* HEADER */}
+          <div className="flex items-center justify-between mb-8">
+            <div
+              className="flex items-center gap-3 font-bold text-lg"
+              style={{ color: "var(--text-primary)" }}
+            >
+              <div
+                className="h-10 w-10 rounded-xl flex items-center justify-center text-sm font-bold"
+                style={{
+                  background: "var(--accent)",
+                  color: "#000",
+                }}
+              >
                 H
-              </span>
-              Handleey
+              </div>
+              Handlyee
             </div>
 
-            {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="text-[var(--text-primary)]"
+              style={{ color: "var(--text-primary)" }}
             >
               <X size={24} />
             </button>
           </div>
 
-          {/* Links */}
-          <div className="flex flex-col gap-6 px-6 py-8 text-lg">
+          {/* LINKS */}
+          <div className="flex flex-col gap-6 text-lg">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="font-medium text-[var(--text-primary)]"
                 onClick={() => setIsOpen(false)}
+                className="font-medium"
+                style={{ color: "var(--text-primary)" }}
               >
                 {link.name}
               </a>
             ))}
-
-            <a
-              href="/contacts"
-              className="font-medium text-[var(--text-primary)]"
-            >
-              Contact
-            </a>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="mt-auto px-6 pb-8">
-            <a
-              href="https://wa.me/918368573451?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Handleey.%20I%E2%80%99d%20like%20to%20know%20how%20it%20can%20help%20me."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center py-3 bg-[var(--accent)] text-white rounded-full font-medium hover:bg-[var(--accent-hover)] transition"
-            >
-              Chat on WhatsApp
-            </a>
-          </div>
+          {/* CTA */}
+          <a
+            href="https://api.whatsapp.com/send?phone=918368573451"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 block w-full text-center py-3 rounded-md font-semibold"
+            style={{
+              background: "var(--accent)",
+              color: "#000",
+            }}
+          >
+            Start Free Trial
+          </a>
         </div>
       </div>
-
-      <ContactPopup
-        isOpen={isPopupOpen}
-        onClose={() => setIsPopupOpen(false)}
-      />
     </header>
   );
 }

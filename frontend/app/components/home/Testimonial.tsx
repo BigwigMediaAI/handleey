@@ -5,123 +5,129 @@ const testimonials = [
     name: "Rahul Sharma",
     role: "Hotel Owner, Delhi",
     review:
-      "Handleyee helped us go from 3.9 to 4.7 ⭐ in just 8 weeks. AI replies saved hours every day and our response rate is now above 90%.",
+      "Handlyee helped us go from 3.9 to 4.7 stars in just 8 weeks. AI replies saved hours every day and our response rate is now above 90%.",
   },
   {
     name: "Ankit Verma",
     role: "Marketing Head, Hospitality Group",
     review:
-      "We manage 5+ properties and everything is centralized now. Reviews, social comments, analytics — all in one dashboard.",
+      "We manage 5+ properties with one dashboard now. Reviews, analytics, and social proof all flow through the same platform.",
   },
   {
     name: "Priya Singh",
     role: "Agency Owner",
     review:
-      "The AI replies + team workflow is insane. We handle multiple clients easily and never miss a review again.",
+      "The automation and slick review experience make our life easier. Customers love the tap-to-review flow and the reporting is excellent.",
   },
-];
-
-const stats = [
-  { value: "10K+", label: "Reviews Managed" },
-  { value: "4.8⭐", label: "Avg Rating Improved" },
-  { value: "200+", label: "Businesses Onboarded" },
-  { value: "95%", label: "Response Rate Achieved" },
 ];
 
 export default function Testimonials() {
   return (
-    <div>
-      {/* 🔥 TESTIMONIALS */}
-      <section className="relative bg-[var(--bg-secondary)] py-24 px-4 md:px-6 overflow-hidden">
-        {/* Glow */}
-        <div className="absolute top-0 right-0 w-72 h-72 bg-[var(--accent)] opacity-10 blur-3xl rounded-full" />
+    <section
+      id="demo"
+      className="py-24 px-4 md:px-6"
+      style={{ background: "var(--bg-secondary)" }}
+    >
+      <div className="max-w-7xl mx-auto text-center">
+        {/* TAG */}
+        <p
+          className="text-sm font-semibold uppercase tracking-[0.35em]"
+          style={{ color: "var(--accent)" }}
+        >
+          Trusted reviews
+        </p>
 
-        <div className="max-w-7xl mx-auto text-center relative">
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
-            Trusted by Businesses That Care About Reputation
-          </h2>
+        {/* TITLE */}
+        <h2
+          className="mt-4 text-4xl font-bold sm:text-5xl"
+          style={{ color: "var(--text-primary)" }}
+        >
+          Customers love how easy it feels.
+        </h2>
 
-          <p className="mt-4 text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-            From hotels to agencies — teams use Handleyee to manage reviews,
-            respond faster, and grow their brand trust.
-          </p>
+        {/* SUBTEXT */}
+        <p
+          className="mx-auto mt-5 max-w-2xl text-lg leading-8"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          Real stories from real businesses that scaled their reputation with
+          Handlyee.
+        </p>
 
-          {/* Cards */}
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((t, index) => (
+        {/* CARDS */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {testimonials.map((t, index) => (
+            <div
+              key={index}
+              className="relative rounded-2xl p-8 text-left transition hover:-translate-y-1 hover:shadow-lg"
+              style={{
+                background: "var(--bg)",
+                border: "1px solid var(--border)",
+              }}
+            >
+              {/* TOP BORDER LINE */}
               <div
-                key={index}
-                className="relative group bg-[var(--bg)] border border-[var(--border)] rounded-2xl p-6 text-left hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-              >
-                {/* Hover glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-[var(--accent)]/5 to-transparent" />
+                className="absolute inset-x-0 top-0 h-1 rounded-t-2xl"
+                style={{ background: "var(--accent)" }}
+              />
 
-                <div className="relative">
-                  {/* Stars */}
-                  <div className="flex gap-1 text-yellow-400 mb-4 text-sm">
-                    ★★★★★
+              <div className="space-y-6">
+                {/* RATING */}
+                <div
+                  className="flex items-center gap-3 text-sm"
+                  style={{ color: "var(--accent)" }}
+                >
+                  <span>★★★★★</span>
+                  <span style={{ color: "var(--text-secondary)" }}>
+                    Top rated
+                  </span>
+                </div>
+
+                {/* REVIEW */}
+                <p
+                  className="leading-relaxed"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  "{t.review}"
+                </p>
+
+                {/* USER */}
+                <div className="flex items-center gap-4">
+                  <div
+                    className="flex h-12 w-12 items-center justify-center rounded-xl font-bold"
+                    style={{
+                      background: "var(--accent)",
+                      color: "#000",
+                    }}
+                  >
+                    {t.name.charAt(0)}
                   </div>
 
-                  {/* Review */}
-                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                    “{t.review}”
-                  </p>
-
-                  {/* User */}
-                  <div className="mt-6 flex items-center gap-3">
-                    {/* Avatar */}
-                    <div className="w-10 h-10 rounded-full bg-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)] font-semibold">
-                      {t.name.charAt(0)}
-                    </div>
-
-                    <div>
-                      <p className="font-semibold text-[var(--text-primary)]">
-                        {t.name}
-                      </p>
-                      <p className="text-xs text-[var(--text-secondary)]">
-                        {t.role}
-                      </p>
-                    </div>
+                  <div>
+                    <p
+                      className="font-semibold"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      {t.name}
+                    </p>
+                    <p
+                      className="text-sm"
+                      style={{ color: "var(--text-secondary)" }}
+                    >
+                      {t.role}
+                    </p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Trust line */}
-          <p className="mt-10 text-sm text-[var(--text-secondary)]">
-            ⭐ Used by 200+ businesses across hospitality & services
-          </p>
+            </div>
+          ))}
         </div>
-      </section>
 
-      {/* 🔥 STATS SECTION */}
-      <section className="relative bg-[var(--bg)] py-20 px-4 md:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="relative group bg-[var(--bg-secondary)] border border-[var(--border)] rounded-2xl p-8 text-center hover:shadow-xl transition-all"
-              >
-                {/* Glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-[var(--accent)]/5 to-transparent" />
-
-                <div className="relative">
-                  <p className="text-3xl md:text-4xl font-bold text-[var(--accent)]">
-                    {stat.value}
-                  </p>
-
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
-                    {stat.label}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
+        {/* FOOTNOTE */}
+        <p className="mt-10 text-sm" style={{ color: "var(--text-secondary)" }}>
+          Many businesses use Handlyee for hospitality, retail, and services.
+        </p>
+      </div>
+    </section>
   );
 }

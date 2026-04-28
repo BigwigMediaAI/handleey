@@ -131,6 +131,20 @@ export default function Product() {
             "Scalable setup",
           ]}
         />
+        <FeatureCard
+          title="Google My Business Optimization"
+          desc="Improve your visibility, ranking, and customer trust on Google with powerful insights and automation."
+          img="/screenshot/img (5).jpeg"
+          reverse
+          points={[
+            "Track Google reviews in real-time",
+            "Monitor rating trends & performance",
+            "Improve local ranking visibility",
+            "Analyze competitors in your area",
+            "Respond instantly with AI",
+            "Boost customer trust & conversions",
+          ]}
+        />
       </div>
 
       {/* GRID GALLERY */}
@@ -140,7 +154,7 @@ export default function Product() {
         </h2>
 
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[5, 6, 7, 8, 9, 10].map((n) => (
+          {[18, 6, 8, 9, 3, 10].map((n) => (
             <img
               key={n}
               src={`/screenshot/img (${n}).jpeg`}
