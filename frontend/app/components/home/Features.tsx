@@ -7,12 +7,20 @@ import {
   Share2,
   Layers,
   QrCode,
+  Send,
+  MessageCircle,
+  MapPin,
+  Globe,
+  Star,
+  Zap,
+  Smartphone,
 } from "lucide-react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
+import { FaFacebook } from "react-icons/fa";
 
 const logos = [
   "/logos/google.png",
@@ -65,36 +73,30 @@ export default function Features() {
   return (
     <>
       <section className="py-16" style={{ background: "var(--bg)" }}>
-        <div className="max-w-6xl mx-auto text-center mb-10">
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
-            Integrates with 50+ Platforms on One Dashboard
-          </h2>
-        </div>
+        <div className="max-w-7xl mx-auto px-4">
+          {/* HEADING */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+              Integrates with 50+ Platforms on One Dashboard
+            </h2>
+          </div>
 
-        <Swiper
-          modules={[Autoplay]}
-          slidesPerView={2}
-          spaceBetween={30}
-          loop
-          speed={2000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
-          }}
-        >
-          {logos.map((logo, i) => (
-            <SwiperSlide key={i}>
-              <div className="flex items-center justify-center h-16">
-                <img src={logo} className="h-10 object-contain" />
+          {/* LOGO GRID */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {logos.map((logo, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-center h-20 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-sm hover:shadow-md transition"
+              >
+                <img
+                  src={logo}
+                  alt="platform"
+                  className="h-10 object-contain opacity-80 hover:opacity-100 transition"
+                />
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section
@@ -103,10 +105,7 @@ export default function Features() {
       >
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT IMAGE */}
-          <img
-            src="/screenshot/img (1).jpeg"
-            className="rounded-2xl shadow-xl"
-          />
+          <img src="/hero/allinone.png" className="w-full rounded-2xl" />
 
           {/* RIGHT CONTENT */}
           <div>
@@ -126,51 +125,137 @@ export default function Features() {
               interface.
             </p>
 
-            <ul className="mt-6 space-y-3 text-sm">
-              <li>✔ Reply to all reviews from one place</li>
-              <li>✔ Manage multiple platforms easily</li>
-              <li>✔ Never miss a customer message</li>
-            </ul>
+            {/* ICON LIST */}
+            <div className="mt-8 space-y-5">
+              {/* ITEM 1 */}
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-500/10">
+                  <MessageCircle className="text-yellow-500" size={18} />
+                </div>
+                <p
+                  className="text-sm md:text-base"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Reply to all reviews from one place
+                </p>
+              </div>
+
+              {/* ITEM 2 */}
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-500/10">
+                  <Layers className="text-yellow-500" size={18} />
+                </div>
+                <p
+                  className="text-sm md:text-base"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Manage multiple platforms easily
+                </p>
+              </div>
+
+              {/* ITEM 3 */}
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-500/10">
+                  <Send className="text-yellow-500" size={18} />
+                </div>
+                <p
+                  className="text-sm md:text-base"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Never miss a customer message
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="py-24 px-4" style={{ background: "var(--bg)" }}>
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           {/* LEFT CONTENT */}
           <div>
             <h2
-              className="text-3xl md:text-4xl font-bold"
+              className="text-3xl md:text-4xl font-bold leading-tight"
               style={{ color: "var(--text-primary)" }}
             >
               Integrate with 50+ Platforms Instantly
             </h2>
 
             <p
-              className="mt-5 text-lg"
+              className="mt-5 text-lg max-w-lg"
               style={{ color: "var(--text-secondary)" }}
             >
               From Google to TripAdvisor, Booking.com to Justdial — connect all
               your platforms in minutes and manage everything from one place.
             </p>
 
-            <ul className="mt-6 space-y-3 text-sm">
-              <li>✔ Google Reviews</li>
-              <li>✔ Facebook & Instagram</li>
-              <li>✔ TripAdvisor & Booking.com</li>
-              <li>✔ Justdial & more</li>
-            </ul>
+            {/* FEATURE LIST */}
+            <div>
+              {/* ITEM */}
+              <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 transition">
+                <div className="h-12 w-12 flex items-center justify-center rounded-full bg-yellow-100 ">
+                  <Star className="text-yellow-500" size={20} />
+                </div>
+                <span
+                  className="text-base font-medium"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Google Reviews
+                </span>
+              </div>
+
+              {/* ITEM */}
+              <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 transition">
+                <div className="h-12 w-12 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-500/10">
+                  <FaFacebook className="text-blue-500" size={20} />
+                </div>
+                <span
+                  className="text-base font-medium"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Facebook & Instagram
+                </span>
+              </div>
+
+              {/* ITEM */}
+              <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 transition">
+                <div className="h-12 w-12 flex items-center justify-center rounded-full bg-green-100 dark:bg-green-500/10">
+                  <Globe className="text-green-500" size={20} />
+                </div>
+                <span
+                  className="text-base font-medium"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  TripAdvisor & Booking.com
+                </span>
+              </div>
+
+              {/* ITEM */}
+              <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 transition">
+                <div className="h-12 w-12 flex items-center justify-center rounded-full bg-orange-100 dark:bg-orange-500/10">
+                  <MapPin className="text-orange-500" size={20} />
+                </div>
+                <span
+                  className="text-base font-medium"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Justdial & more
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT IMAGE */}
-          <img
-            src="/screenshot/img (13).jpeg"
-            className="rounded-2xl shadow-xl"
-          />
+          <div className="relative">
+            <img src="/hero/allp.png" alt="All Platforms" className="w-full " />
+
+            {/* OPTIONAL GLOW EFFECT */}
+            <div className="absolute -z-10 inset-0 blur-3xl opacity-20 bg-yellow-400 rounded-full"></div>
+          </div>
         </div>
       </section>
 
-      <section className="bg-[#f5f5f5] py-20 px-4">
+      <section id="features" className="bg-[#f5f5f5] py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           {/* MAIN TITLE */}
           <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
@@ -229,7 +314,7 @@ export default function Features() {
               style={{ border: "1px solid var(--border)" }}
             >
               <img
-                src="/screenshot/img (1).jpeg"
+                src="/abouthero.png"
                 alt="Reputation Platform Dashboard"
                 className="w-full object-cover"
               />
@@ -239,32 +324,26 @@ export default function Features() {
       </section>
 
       <section
-        className="py-24 px-4"
+        className="py-16 px-4 relative overflow-hidden"
         style={{ background: "var(--bg-secondary)" }}
       >
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* LEFT IMAGE */}
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative group">
+            <div className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md">
               <img
-                src="/screenshot/img (1).jpeg"
+                src="/hero/nfc.png"
                 alt="NFC Card"
-                className="w-full object-cover"
+                className="w-full object-cover group-hover:scale-105 transition duration-500"
               />
             </div>
           </div>
 
           {/* RIGHT CONTENT */}
           <div className="space-y-6">
-            {/* small line */}
-            <div
-              className="w-12 h-[3px]"
-              style={{ background: "var(--accent)" }}
-            />
-
             {/* TITLE */}
             <h2
-              className="text-3xl md:text-4xl font-bold"
+              className="text-3xl md:text-4xl font-bold leading-tight"
               style={{ color: "var(--text-primary)" }}
             >
               NFC Card and Stand
@@ -272,34 +351,57 @@ export default function Features() {
 
             {/* DESCRIPTION */}
             <p
-              className="text-lg leading-relaxed"
+              className="text-lg leading-relaxed max-w-lg"
               style={{ color: "var(--text-secondary)" }}
             >
               Introducing the Handlyee NFC QR Code Stand, the ultimate tool for
               collecting valuable feedback from your customers. With just a tap
-              or a scan, customers can leave a review in just 15 seconds, making
-              it easier than ever to gather feedback and improve your business.
+              or scan, customers can leave a review in seconds.
             </p>
 
-            {/* CTA + CONTACT */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
+            {/* FEATURES */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-500/10">
+                  <Smartphone className="text-yellow-500" size={18} />
+                </div>
+                <span style={{ color: "var(--text-primary)" }}>
+                  Tap or scan to review instantly
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-500/10">
+                  <Zap className="text-yellow-500" size={18} />
+                </div>
+                <span style={{ color: "var(--text-primary)" }}>
+                  Collect feedback in under 15 seconds
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-yellow-100 dark:bg-yellow-500/10">
+                  <Star className="text-yellow-500" size={18} />
+                </div>
+                <span style={{ color: "var(--text-primary)" }}>
+                  Boost your online ratings effortlessly
+                </span>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="pt-6">
               <a
                 href="https://api.whatsapp.com/send?phone=918368573451&text=Hello,%20I'm%20interested%20in%20starting%20a%20free%20trial."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-md font-semibold transition inline-block"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition shadow-lg hover:scale-105"
                 style={{
                   background: "var(--accent)",
                   color: "#000",
                 }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style.background = "var(--accent-hover)")
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style.background = "var(--accent)")
-                }
               >
-                START FREE TRIAL
+                Start Free Trial →
               </a>
             </div>
           </div>

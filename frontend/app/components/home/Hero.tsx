@@ -10,25 +10,25 @@ const slides = [
     title: "Boost Reviews & Rank #1 on Google",
     description:
       "100X your positive reviews, avoid negative feedback, AI-powered replies, NFC cards and social sharing — all in one platform.",
-    image: "/screenshot/img (21).jpeg",
+    image: "/hero/google.png",
   },
   {
     title: "AI Replies That Save Time",
     description:
       "Automatically respond to reviews using AI and build trust with your customers effortlessly.",
-    image: "/screenshot/img (20).jpeg",
+    image: "/hero/aireply.png",
   },
   {
     title: "Manage All Reviews & Social Media in One Dashboard",
     description:
       "Connect all your platforms like Google, Facebook, and more. Reply to every comment and review from one powerful interface.",
-    image: "/screenshot/img (13).jpeg",
+    image: "/hero/desk.png",
   },
   {
     title: "Integrate 50+ Platforms in One Place",
     description:
       "Connect Google, Facebook, TripAdvisor, Justdial, and 50+ platforms in minutes. Manage all reviews, messages, and feedback from one unified dashboard.",
-    image: "/screenshot/img (16).jpeg",
+    image: "/hero/s.png",
   },
 ];
 
@@ -38,6 +38,7 @@ const WHATSAPP_LINK =
 export default function Hero() {
   return (
     <section
+      id="home"
       className="py-20 px-4"
       style={{ background: "var(--bg-secondary)" }}
     >
@@ -100,10 +101,7 @@ export default function Hero() {
 
                 {/* RIGHT */}
                 <div>
-                  <div
-                    className="rounded-2xl overflow-hidden shadow-xl"
-                    style={{ border: "1px solid var(--border)" }}
-                  >
+                  <div className="rounded-2xl overflow-hidden">
                     <img
                       src={slide.image}
                       alt="slide"

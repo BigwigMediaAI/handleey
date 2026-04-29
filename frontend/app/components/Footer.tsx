@@ -4,157 +4,101 @@ import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer
-      id="contact"
-      className="px-4 py-20 md:px-6"
-      style={{ background: "var(--bg-secondary)" }}
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid gap-10 lg:grid-cols-3">
-          {/* LEFT */}
-          <div className="space-y-6">
-            <div
-              className="flex items-center gap-3 font-bold text-lg"
-              style={{ color: "var(--text-primary)" }}
-            >
-              <div
-                className="h-10 w-10 rounded-xl flex items-center justify-center text-sm font-bold"
-                style={{
-                  background: "var(--accent)",
-                  color: "#000",
-                }}
-              >
-                H
-              </div>
-              Handlyee
-            </div>
+    <footer id="contact">
+      {/* CTA SECTION */}
+      <section className="relative py-24 px-4 text-center overflow-hidden">
+        {/* BACKGROUND USING YOUR COLORS */}
+        <div
+          className="absolute inset-0 opacity-95"
+          style={{
+            background: `linear-gradient(135deg, var(--accent), var(--accent-hover))`,
+          }}
+        />
 
-            <p
-              className="max-w-sm leading-relaxed"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              A premium reputation platform for growing businesses. Collect
-              reviews, reply instantly, and build trust effortlessly.
-            </p>
+        {/* SOFT GLOW (less harsh) */}
+        <div
+          className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[400px] blur-3xl rounded-full opacity-30"
+          style={{ background: "var(--accent)" }}
+        />
 
+        <div className="relative z-10 max-w-5xl mx-auto">
+          {/* HEADING */}
+          <h2 className="text-3xl md:text-5xl font-bold text-black leading-tight">
+            Let’s not waste time & get started.
+            <br className="hidden md:block" />
+            Shall we?
+          </h2>
+
+          {/* BUTTON */}
+          <div className="mt-10">
             <a
               href="https://api.whatsapp.com/send?phone=918368573451"
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-3 rounded-md font-semibold transition"
+              className="inline-block px-10 py-4 rounded-xl font-semibold tracking-wide transition-all duration-300"
               style={{
-                background: "var(--accent)",
-                color: "#000",
+                background: "#000",
+                color: "#fff",
+                boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
               }}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.background = "var(--accent-hover)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.background = "var(--accent)")
-              }
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,0,0,0.3)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.2)";
+              }}
             >
-              Start Free Trial
+              LET'S DISCUSS YOUR PROJECT →
             </a>
-          </div>
-
-          {/* CENTER */}
-          <div>
-            <h3
-              className="text-lg font-semibold mb-5"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Explore
-            </h3>
-
-            <ul className="space-y-3">
-              {[
-                { label: "Home", href: "#home" },
-                { label: "Features", href: "#features" },
-                { label: "Testimonials", href: "#demo" },
-                { label: "Plans", href: "#pricing" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="transition"
-                    style={{ color: "var(--text-secondary)" }}
-                    onMouseOver={(e) =>
-                      (e.currentTarget.style.color = "var(--accent)")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.style.color = "var(--text-secondary)")
-                    }
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* RIGHT */}
-          <div>
-            <h3
-              className="text-lg font-semibold mb-5"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Contact
-            </h3>
-
-            <p style={{ color: "var(--text-secondary)" }}>help@handlyee.com</p>
-            <p className="mt-2" style={{ color: "var(--text-secondary)" }}>
-              +91 83685 73451
-            </p>
-
-            {/* SOCIAL */}
-            <div className="mt-6 flex gap-4">
-              {[FaLinkedinIn, FaInstagram, FaFacebookF].map((Icon, i) => (
-                <div
-                  key={i}
-                  className="h-10 w-10 flex items-center justify-center rounded-md transition cursor-pointer"
-                  style={{
-                    background: "var(--bg)",
-                    border: "1px solid var(--border)",
-                    color: "var(--text-secondary)",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.background = "var(--accent)";
-                    e.currentTarget.style.color = "#000";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.background = "var(--bg)";
-                    e.currentTarget.style.color = "var(--text-secondary)";
-                  }}
-                >
-                  <Icon />
-                </div>
-              ))}
-            </div>
           </div>
         </div>
+      </section>
 
-        {/* BOTTOM */}
-        <div
-          className="mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm"
-          style={{ borderTop: "1px solid var(--border)" }}
-        >
+      {/* BOTTOM FOOTER */}
+      <div
+        className="py-6 px-4"
+        style={{
+          background: "var(--primary)",
+          borderTop: "1px solid var(--border)",
+        }}
+      >
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+          {/* LEFT */}
           <p style={{ color: "var(--text-secondary)" }}>
-            © {new Date().getFullYear()} Handlyee. All rights reserved.
+            © {new Date().getFullYear()} Handlyee · Privacy Policy
           </p>
 
-          <div className="flex gap-6">
-            <a
-              href="https://reviewuplift.com/privacy-policy.html"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="https://merchant.razorpay.com/policy/NaUwucTZt7ivqT/terms"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Terms & Conditions
-            </a>
+          {/* CENTER */}
+          <p style={{ color: "var(--text-secondary)" }}>
+            Made with <span className="text-red-500">❤️</span>
+          </p>
+
+          {/* SOCIAL */}
+          <div className="flex gap-3">
+            {[FaFacebookF, FaInstagram, FaLinkedinIn].map((Icon, i) => (
+              <div
+                key={i}
+                className="h-9 w-9 flex items-center justify-center rounded-md cursor-pointer transition-all duration-300"
+                style={{
+                  background: "rgba(255,255,255,0.06)",
+                  color: "var(--text-secondary)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = "var(--accent)";
+                  e.currentTarget.style.color = "#000";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                  e.currentTarget.style.color = "var(--text-secondary)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                <Icon size={14} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
