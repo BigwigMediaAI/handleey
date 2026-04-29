@@ -76,7 +76,10 @@ export default function Features() {
         <div className="max-w-7xl mx-auto px-4">
           {/* HEADING */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            <h2
+              className="text-3xl md:text-4xl font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
               Integrates with 50+ Platforms on One Dashboard
             </h2>
           </div>
@@ -86,12 +89,30 @@ export default function Features() {
             {logos.map((logo, i) => (
               <div
                 key={i}
-                className="flex items-center justify-center h-20 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-sm hover:shadow-md transition"
+                className="flex items-center justify-center h-20 rounded-xl transition"
+                style={{
+                  background: "var(--card-bg)",
+                  border: "1px solid var(--border)",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 20px rgba(0,0,0,0.08)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 2px 8px rgba(0,0,0,0.05)";
+                }}
               >
                 <img
                   src={logo}
                   alt="platform"
-                  className="h-10 object-contain opacity-80 hover:opacity-100 transition"
+                  className="h-10 object-contain transition"
+                  style={{ opacity: 0.8 }}
+                  onMouseOver={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseOut={(e) => (e.currentTarget.style.opacity = "0.8")}
                 />
               </div>
             ))}
@@ -255,10 +276,17 @@ export default function Features() {
         </div>
       </section>
 
-      <section id="features" className="bg-[#f5f5f5] py-20 px-4">
+      <section
+        id="features"
+        className="py-20 px-4"
+        style={{ background: "var(--bg-secondary)" }}
+      >
         <div className="max-w-7xl mx-auto text-center">
           {/* MAIN TITLE */}
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
+          <h2
+            className="mt-6 text-3xl md:text-4xl font-bold"
+            style={{ color: "var(--text-primary)" }}
+          >
             Key Benefits Of Handlyee
           </h2>
 
@@ -267,20 +295,47 @@ export default function Features() {
             {benefits.map((item) => (
               <div
                 key={item.title}
-                className="bg-[#eeeeee] p-8 text-left rounded-md hover:shadow-md transition"
+                className="p-8 text-left rounded-xl transition"
+                style={{
+                  background: "var(--card-bg2)",
+                  border: "1px solid var(--border)",
+                  boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 12px 25px rgba(0,0,0,0.08)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 2px 10px rgba(0,0,0,0.05)";
+                }}
               >
                 {/* ICON BOX */}
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center bg-[var(--accent)] text-black rounded">
+                <div
+                  className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg"
+                  style={{
+                    background: "var(--icon-bg)",
+                    color: "var(--icon-color)",
+                  }}
+                >
                   {item.icon}
                 </div>
 
                 {/* TITLE */}
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3
+                  className="text-lg font-semibold"
+                  style={{ color: "var(--text-primary)" }}
+                >
                   {item.title}
                 </h3>
 
                 {/* DESC */}
-                <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                <p
+                  className="mt-3 text-sm leading-relaxed"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   {item.desc}
                 </p>
               </div>
@@ -288,6 +343,7 @@ export default function Features() {
           </div>
         </div>
       </section>
+
       <section className="py-24 px-4" style={{ background: "var(--bg)" }}>
         <div className="max-w-6xl mx-auto text-center">
           {/* TITLE */}

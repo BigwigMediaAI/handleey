@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import ThemeToggle from "./Theme-toggle";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -28,19 +29,26 @@ export default function Navbar() {
     <>
       {/* HEADER */}
       <header
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/95 dark:bg-black/95 shadow-md backdrop-blur-md"
-            : "bg-transparent"
-        }`}
+        className="fixed w-full z-50 transition-all duration-300"
+        style={{
+          background: isScrolled ? "var(--bg)" : "transparent",
+          borderBottom: isScrolled ? "1px solid var(--border)" : "none",
+          backdropFilter: isScrolled ? "blur(10px)" : "none",
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16">
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3 font-bold text-lg">
-            <div className="h-10 w-10 rounded-xl flex items-center justify-center bg-yellow-500 text-black">
+            <div
+              className="h-10 w-10 rounded-xl flex items-center justify-center"
+              style={{
+                background: "var(--accent)",
+                color: "#000",
+              }}
+            >
               H
             </div>
-            <span className="text-black dark:text-white">Handlyee</span>
+            <span style={{ color: "var(--text-primary)" }}>Handlyee</span>
           </Link>
 
           {/* DESKTOP MENU */}
@@ -49,31 +57,58 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-yellow-500 transition"
+                className="text-sm font-medium transition"
+                style={{ color: "var(--text-secondary)" }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.color = "var(--accent)")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.color = "var(--text-secondary)")
+                }
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden md:block">
+          {/* RIGHT SIDE */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* THEME TOGGLE */}
+            <ThemeToggle />
+
+            {/* CTA */}
             <a
               href="https://api.whatsapp.com/send?phone=918368573451"
               target="_blank"
-              className="px-5 py-2 rounded-md text-sm font-semibold bg-yellow-500 text-black hover:bg-yellow-400 transition"
+              className="px-5 py-2 rounded-md text-sm font-semibold transition"
+              style={{
+                background: "var(--accent)",
+                color: "#000",
+              }}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.background = "var(--accent-hover)")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.background = "var(--accent)")
+              }
             >
               Start Free Trial
             </a>
           </div>
 
           {/* MOBILE BUTTON */}
-          <button
-            onClick={() => setIsOpen(true)}
-            className="md:hidden text-black dark:text-white"
-          >
-            <Menu size={24} />
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            {/* THEME TOGGLE (NOW VISIBLE ON MOBILE) */}
+            <ThemeToggle />
+
+            {/* MENU BUTTON */}
+            <button
+              onClick={() => setIsOpen(true)}
+              style={{ color: "var(--text-primary)" }}
+            >
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -91,17 +126,24 @@ export default function Navbar() {
 
         {/* DRAWER */}
         <div
-          className={`absolute top-0 left-0 h-full w-[80%] max-w-sm bg-white dark:bg-black p-6 transform transition-transform duration-300 ${
+          className={`absolute top-0 left-0 h-full w-[80%] max-w-sm p-6 transform transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
+          style={{
+            background: "var(--bg)",
+            borderRight: "1px solid var(--border)",
+          }}
         >
           {/* HEADER */}
           <div className="flex justify-between items-center mb-8">
-            <span className="text-lg font-bold text-black dark:text-white">
+            <span
+              className="text-lg font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
               Menu
             </span>
             <button onClick={() => setIsOpen(false)}>
-              <X className="text-black dark:text-white" />
+              <X style={{ color: "var(--text-primary)" }} />
             </button>
           </div>
 
@@ -112,21 +154,28 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-medium text-gray-800 dark:text-gray-200"
+                className="text-lg font-medium"
+                style={{ color: "var(--text-primary)" }}
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          {/* CTA */}
-          <a
-            href="https://api.whatsapp.com/send?phone=918368573451"
-            target="_blank"
-            className="mt-10 block text-center py-3 rounded-md font-semibold bg-yellow-500 text-black"
-          >
-            Start Free Trial
-          </a>
+          {/* TOGGLE + CTA */}
+          <div className="mt-10 flex flex-col gap-4">
+            <a
+              href="https://api.whatsapp.com/send?phone=918368573451"
+              target="_blank"
+              className="block text-center py-3 rounded-md font-semibold"
+              style={{
+                background: "var(--accent)",
+                color: "#000",
+              }}
+            >
+              Start Free Trial
+            </a>
+          </div>
         </div>
       </div>
     </>

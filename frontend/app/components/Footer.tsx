@@ -59,7 +59,7 @@ export default function Footer() {
       <div
         className="py-6 px-4"
         style={{
-          background: "var(--primary)",
+          background: "var(--card-bg2)",
           borderTop: "1px solid var(--border)",
         }}
       >
