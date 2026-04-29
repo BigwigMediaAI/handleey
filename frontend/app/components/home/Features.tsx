@@ -22,8 +22,10 @@ const logos = [
   "/logos/fb.png",
   "/logos/zomato_logo.png",
   "/logos/insta.png",
+  "/logos/twitter.png",
   "/logos/linkedin.png",
   "/logos/swiggy.png",
+  "/logos/Reddit.png",
 ];
 
 const benefits = [
@@ -102,7 +104,7 @@ export default function Features() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT IMAGE */}
           <img
-            src="/screenshot/img (12).jpeg"
+            src="/screenshot/img (1).jpeg"
             className="rounded-2xl shadow-xl"
           />
 
@@ -162,7 +164,7 @@ export default function Features() {
 
           {/* RIGHT IMAGE */}
           <img
-            src="/screenshot/img (3).jpeg"
+            src="/screenshot/img (13).jpeg"
             className="rounded-2xl shadow-xl"
           />
         </div>

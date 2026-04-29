@@ -10,25 +10,25 @@ const slides = [
     title: "Boost Reviews & Rank #1 on Google",
     description:
       "100X your positive reviews, avoid negative feedback, AI-powered replies, NFC cards and social sharing — all in one platform.",
-    image: "/screenshot/img (1).jpeg",
-  },
-  {
-    title: "Collect Reviews Instantly",
-    description:
-      "Use QR codes and NFC cards to collect reviews in seconds. No friction, no hassle — just tap and review.",
-    image: "/screenshot/img (2).jpeg",
+    image: "/screenshot/img (21).jpeg",
   },
   {
     title: "AI Replies That Save Time",
     description:
       "Automatically respond to reviews using AI and build trust with your customers effortlessly.",
-    image: "/screenshot/img (3).jpeg",
+    image: "/screenshot/img (20).jpeg",
   },
   {
     title: "Manage All Reviews & Social Media in One Dashboard",
     description:
       "Connect all your platforms like Google, Facebook, and more. Reply to every comment and review from one powerful interface.",
-    image: "/screenshot/img (12).jpeg",
+    image: "/screenshot/img (13).jpeg",
+  },
+  {
+    title: "Integrate 50+ Platforms in One Place",
+    description:
+      "Connect Google, Facebook, TripAdvisor, Justdial, and 50+ platforms in minutes. Manage all reviews, messages, and feedback from one unified dashboard.",
+    image: "/screenshot/img (16).jpeg",
   },
 ];
 
