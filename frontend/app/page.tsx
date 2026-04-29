@@ -5,6 +5,7 @@ import Testimonials from "./components/home/Testimonial";
 import Plans from "./components/home/Plans";
 import Footer from "./components/Footer";
 import FAQ from "./components/home/FAQ";
+import FloatingContact from "./components/Floating";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Plans />
       <FAQ />
       <Footer />
+      <FloatingContact />
     </div>
   );
 }

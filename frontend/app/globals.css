@@ -7,6 +7,7 @@
 
   /* Accent (Yellow like screenshot) */
   --accent: #f59e0b; /* amber / yellow */
+
   --accent-hover: #d97706;
 
   /* Background */
@@ -29,7 +30,6 @@
   --success: #22c55e;
   --error: #ef4444;
 }
-
 html {
   scroll-behavior: smooth;
 }

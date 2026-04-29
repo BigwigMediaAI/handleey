@@ -65,7 +65,7 @@ export default function Features() {
                 className="bg-[#eeeeee] p-8 text-left rounded-md hover:shadow-md transition"
               >
                 {/* ICON BOX */}
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center bg-yellow-500 text-black rounded">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center bg-[var(--accent)] text-black rounded">
                   {item.icon}
                 </div>
 
