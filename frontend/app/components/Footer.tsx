@@ -83,7 +83,7 @@ export default function Footer() {
           borderTop: "1px solid var(--border)",
         }}
       >
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        <div className="pb-16 md:pb-0 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           {/* LEFT */}
           <p style={{ color: "var(--text-secondary)" }}>
             © {new Date().getFullYear()} Handlyee · Privacy Policy
