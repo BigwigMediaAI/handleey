@@ -9,6 +9,23 @@ import {
   QrCode,
 } from "lucide-react";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
+
+const logos = [
+  "/logos/google.png",
+  "/logos/tripadvisor-logo.png",
+  "/logos/justdial.png",
+  "/logos/booking.png",
+  "/logos/fb.png",
+  "/logos/zomato_logo.png",
+  "/logos/insta.png",
+  "/logos/linkedin.png",
+  "/logos/swiggy.png",
+];
+
 const benefits = [
   {
     icon: <ShieldCheck size={22} />,
@@ -45,13 +62,114 @@ const benefits = [
 export default function Features() {
   return (
     <>
+      <section className="py-16" style={{ background: "var(--bg)" }}>
+        <div className="max-w-6xl mx-auto text-center mb-10">
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
+            Integrates with 50+ Platforms on One Dashboard
+          </h2>
+        </div>
+
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={2}
+          spaceBetween={30}
+          loop
+          speed={2000}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 5 },
+          }}
+        >
+          {logos.map((logo, i) => (
+            <SwiperSlide key={i}>
+              <div className="flex items-center justify-center h-16">
+                <img src={logo} className="h-10 object-contain" />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+
+      <section
+        className="py-24 px-4"
+        style={{ background: "var(--bg-secondary)" }}
+      >
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          {/* LEFT IMAGE */}
+          <img
+            src="/screenshot/img (12).jpeg"
+            className="rounded-2xl shadow-xl"
+          />
+
+          {/* RIGHT CONTENT */}
+          <div>
+            <h2
+              className="text-3xl md:text-4xl font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Manage All Reviews & Social Media in One Dashboard
+            </h2>
+
+            <p
+              className="mt-5 text-lg"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Connect all your platforms like Google, Facebook, TripAdvisor, and
+              more. Respond to reviews, comments, and messages from one unified
+              interface.
+            </p>
+
+            <ul className="mt-6 space-y-3 text-sm">
+              <li>✔ Reply to all reviews from one place</li>
+              <li>✔ Manage multiple platforms easily</li>
+              <li>✔ Never miss a customer message</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4" style={{ background: "var(--bg)" }}>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          {/* LEFT CONTENT */}
+          <div>
+            <h2
+              className="text-3xl md:text-4xl font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Integrate with 50+ Platforms Instantly
+            </h2>
+
+            <p
+              className="mt-5 text-lg"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              From Google to TripAdvisor, Booking.com to Justdial — connect all
+              your platforms in minutes and manage everything from one place.
+            </p>
+
+            <ul className="mt-6 space-y-3 text-sm">
+              <li>✔ Google Reviews</li>
+              <li>✔ Facebook & Instagram</li>
+              <li>✔ TripAdvisor & Booking.com</li>
+              <li>✔ Justdial & more</li>
+            </ul>
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <img
+            src="/screenshot/img (3).jpeg"
+            className="rounded-2xl shadow-xl"
+          />
+        </div>
+      </section>
+
       <section className="bg-[#f5f5f5] py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          {/* TOP HEADING */}
-          <h3 className="text-xl md:text-2xl font-semibold text-gray-800">
-            Integrates with Google and 20+ Review Platform
-          </h3>
-
           {/* MAIN TITLE */}
           <h2 className="mt-6 text-3xl md:text-4xl font-bold text-gray-900">
             Key Benefits Of Handlyee

@@ -24,6 +24,12 @@ const slides = [
       "Automatically respond to reviews using AI and build trust with your customers effortlessly.",
     image: "/screenshot/img (3).jpeg",
   },
+  {
+    title: "Manage All Reviews & Social Media in One Dashboard",
+    description:
+      "Connect all your platforms like Google, Facebook, and more. Reply to every comment and review from one powerful interface.",
+    image: "/screenshot/img (12).jpeg",
+  },
 ];
 
 const WHATSAPP_LINK =
