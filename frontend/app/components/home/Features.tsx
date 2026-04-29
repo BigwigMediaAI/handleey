@@ -24,11 +24,11 @@ import { FaFacebook } from "react-icons/fa";
 
 const logos = [
   "/logos/google.png",
-  "/logos/tripadvisor-logo.png",
+  "/logos/tripadvisor-Logo.png",
   "/logos/justdial.png",
-  "/logos/booking.png",
+  "/logos/Booking.png",
   "/logos/fb.png",
-  "/logos/zomato_logo.png",
+  "/logos/zomato_Logo.png",
   "/logos/insta.png",
   "/logos/twitter.png",
   "/logos/linkedin.png",
