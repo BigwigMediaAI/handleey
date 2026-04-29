@@ -229,7 +229,7 @@ export default function Features() {
               style={{ border: "1px solid var(--border)" }}
             >
               <img
-                src="/aboutHero.png" // replace with your image
+                src="/screenshot/img (1).jpeg"
                 alt="Reputation Platform Dashboard"
                 className="w-full object-cover"
               />
