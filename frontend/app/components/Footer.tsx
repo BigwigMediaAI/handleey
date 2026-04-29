@@ -1,6 +1,26 @@
 "use client";
 
+import { Mail } from "lucide-react";
 import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
+
+const socials = [
+  {
+    icon: Mail,
+    link: "mailto:help@handlyee.com",
+  },
+  {
+    icon: FaFacebookF,
+    link: "https://facebook.com/yourpage",
+  },
+  {
+    icon: FaInstagram,
+    link: "https://instagram.com/yourprofile",
+  },
+  {
+    icon: FaLinkedinIn,
+    link: "https://linkedin.com/company/yourcompany",
+  },
+];
 
 export default function Footer() {
   return (
@@ -76,29 +96,36 @@ export default function Footer() {
 
           {/* SOCIAL */}
           <div className="flex gap-3">
-            {[FaFacebookF, FaInstagram, FaLinkedinIn].map((Icon, i) => (
-              <div
-                key={i}
-                className="h-9 w-9 flex items-center justify-center rounded-md cursor-pointer transition-all duration-300"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  color: "var(--text-secondary)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.background = "var(--accent)";
-                  e.currentTarget.style.color = "#000";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.background = "rgba(255,255,255,0.06)";
-                  e.currentTarget.style.color = "var(--text-secondary)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
-                <Icon size={14} />
-              </div>
-            ))}
+            {socials.map((item, i) => {
+              const Icon = item.icon;
+
+              return (
+                <a
+                  key={i}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-9 w-9 flex items-center justify-center rounded-md cursor-pointer transition-all duration-300"
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    color: "var(--text-secondary)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = "var(--accent)";
+                    e.currentTarget.style.color = "#000";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                    e.currentTarget.style.color = "var(--text-secondary)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
+                  <Icon size={14} />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
