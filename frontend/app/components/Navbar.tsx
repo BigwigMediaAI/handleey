@@ -46,9 +46,9 @@ export default function Navbar() {
                 color: "#000",
               }}
             >
-              H
+              C
             </div>
-            <span style={{ color: "var(--text-primary)" }}>Handlyee</span>
+            <span style={{ color: "var(--text-primary)" }}>Critiquee</span>
           </Link>
 
           {/* DESKTOP MENU */}
@@ -136,14 +136,39 @@ export default function Navbar() {
         >
           {/* HEADER */}
           <div className="flex justify-between items-center mb-8">
-            <span
-              className="text-lg font-bold"
+            {/* LOGO */}
+            <div className="flex items-center gap-3">
+              <div
+                className="h-10 w-10 rounded-xl flex items-center justify-center font-bold"
+                style={{
+                  background: "var(--accent)",
+                  color: "#000",
+                }}
+              >
+                C
+              </div>
+
+              <span
+                className="text-lg font-bold tracking-wide"
+                style={{ color: "var(--text-primary)" }}
+              >
+                Critiquee
+              </span>
+            </div>
+
+            {/* CLOSE BUTTON */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-2 rounded-md transition"
               style={{ color: "var(--text-primary)" }}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.background = "var(--hover)")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.background = "transparent")
+              }
             >
-              Menu
-            </span>
-            <button onClick={() => setIsOpen(false)}>
-              <X style={{ color: "var(--text-primary)" }} />
+              <X />
             </button>
           </div>
 

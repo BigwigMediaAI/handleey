@@ -1,12 +1,13 @@
 "use client";
 
 import { Mail } from "lucide-react";
+import Link from "next/link";
 import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 const socials = [
   {
     icon: Mail,
-    link: "mailto:help@handlyee.com",
+    link: "mailto:help@Critiquee.com",
   },
   {
     icon: FaFacebookF,
@@ -85,8 +86,18 @@ export default function Footer() {
       >
         <div className="pb-16 md:pb-0 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           {/* LEFT */}
-          <p style={{ color: "var(--text-secondary)" }}>
-            © {new Date().getFullYear()} Handlyee · Privacy Policy
+          <p
+            className="flex flex-wrap items-center gap-2 text-center md:text-left"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            © {new Date().getFullYear()} Critiquee ·
+            <Link href="/privacy-policy" className="hover:underline">
+              Privacy Policy
+            </Link>
+            ·
+            <Link href="/terms" className="hover:underline">
+              Terms & Conditions
+            </Link>
           </p>
 
           {/* CENTER */}

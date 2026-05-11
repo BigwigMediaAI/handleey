@@ -287,7 +287,7 @@ export default function Features() {
             className="mt-6 text-3xl md:text-4xl font-bold"
             style={{ color: "var(--text-primary)" }}
           >
-            Key Benefits Of Handlyee
+            Key Benefits Of Critiquee
           </h2>
 
           {/* GRID */}
@@ -410,7 +410,7 @@ export default function Features() {
               className="text-lg leading-relaxed max-w-lg"
               style={{ color: "var(--text-secondary)" }}
             >
-              Introducing the Handlyee NFC QR Code Stand, the ultimate tool for
+              Introducing the Critiquee NFC QR Code Stand, the ultimate tool for
               collecting valuable feedback from your customers. With just a tap
               or scan, customers can leave a review in seconds.
             </p>

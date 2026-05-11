@@ -4,9 +4,9 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "WHAT IS Handlyee?",
+    question: "WHAT IS Critiquee?",
     answer:
-      "Handlyee is a software tool designed to help businesses manage and improve their online reputation by collecting, analyzing, and leveraging customer feedback. With Handlyee, businesses can monitor and respond to reviews across multiple online platforms, generate more positive reviews, and gain insights into customer sentiment and satisfaction. The tool also offers analytics and reporting features to help businesses measure the impact of their reputation management efforts and make data-driven decisions.",
+      "Critiquee is a software tool designed to help businesses manage and improve their online reputation by collecting, analyzing, and leveraging customer feedback. With Critiquee, businesses can monitor and respond to reviews across multiple online platforms, generate more positive reviews, and gain insights into customer sentiment and satisfaction. The tool also offers analytics and reporting features to help businesses measure the impact of their reputation management efforts and make data-driven decisions.",
   },
   {
     question: "WHAT’S A REVIEW REQUEST PAGE?",
@@ -48,7 +48,7 @@ export default function FAQ() {
           Frequently Asked Questions
         </h2>
         <p className="mt-4 text-lg" style={{ color: "var(--text-secondary)" }}>
-          Everything you need to know about Handlyee.
+          Everything you need to know about Critiquee.
         </p>
       </div>
 
