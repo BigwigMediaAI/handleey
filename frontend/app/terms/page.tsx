@@ -140,7 +140,7 @@ export default function Terms() {
 
           <Section title="9. Contact Us">
             <p>For any questions regarding these Terms, contact us at:</p>
-            <p className="mt-2 font-medium">support@critiquee.com</p>
+            <p className="mt-2 font-medium">vipul@bigwigmedia.in</p>
           </Section>
         </div>
       </div>
