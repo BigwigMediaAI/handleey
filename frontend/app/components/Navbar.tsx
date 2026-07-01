@@ -78,8 +78,9 @@ export default function Navbar() {
 
             {/* CTA */}
             <a
-              href="https://api.whatsapp.com/send?phone=918368573451"
+              href="https://vendors.critiquee.com"
               target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2 rounded-md text-sm font-semibold transition"
               style={{
                 background: "var(--accent)",
@@ -92,7 +93,7 @@ export default function Navbar() {
                 (e.currentTarget.style.background = "var(--accent)")
               }
             >
-              Start Free Trial
+              Login to Panel
             </a>
           </div>
 

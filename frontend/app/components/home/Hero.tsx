@@ -7,6 +7,14 @@ import "swiper/css";
 
 const slides = [
   {
+    title: "Already a Customer?",
+    description:
+      "Access your Critiquee dashboard to manage reviews, social media, AI replies, analytics, and customer feedback from one place.",
+    image: "/hero/login.png", // Add a dashboard/login image here
+    buttonText: "Login to Panel",
+    buttonLink: "https://vendors.critiquee.com",
+  },
+  {
     title: "Boost Reviews & Rank #1 on Google",
     description:
       "100X your positive reviews, avoid negative feedback, AI-powered replies, NFC cards and social sharing — all in one platform.",
@@ -73,7 +81,7 @@ export default function Hero() {
 
                   {/* CTA */}
                   <a
-                    href={WHATSAPP_LINK}
+                    href={slide.buttonLink ?? WHATSAPP_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-6 py-3 rounded-md font-semibold transition"
@@ -88,7 +96,7 @@ export default function Hero() {
                       (e.currentTarget.style.background = "var(--accent)")
                     }
                   >
-                    Start Free Trial
+                    {slide.buttonText ?? "Start Free Trial"}
                   </a>
 
                   <p
