@@ -66,6 +66,50 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+}
+
+.cinematic-site {
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+.cinematic-site a {
+  text-decoration: none;
+}
+
+.cinematic-grid {
+  background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+}
+
+.network-orbit {
+  animation: orbit 26s linear infinite;
+}
+
+.network-orbit-slow {
+  animation-duration: 38s;
+  animation-direction: reverse;
+}
+
+.network-icon-inner {
+  animation: orbit-counter 26s linear infinite;
+}
+
+@keyframes orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-counter {
+  to { transform: rotate(-360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .cinematic-site * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
 .blog-content {
   margin: 0 auto;
   padding: 2rem 1rem;
