@@ -110,6 +110,68 @@ body {
   .cinematic-site * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
+@media (max-width: 767px) {
+  .cinematic-site {
+    overflow-x: hidden;
+  }
+
+  .hero-scene {
+    min-height: 100svh;
+  }
+
+  .services-scene,
+  .services-scene > div {
+    height: 82svh;
+  }
+
+  .services-track {
+    gap: 0.75rem;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .services-track > a {
+    height: 66svh;
+    width: 88vw;
+  }
+
+  .growth-scene .growth-core {
+    height: 10rem;
+    width: 10rem;
+    opacity: 0.42;
+  }
+
+  .growth-scene article {
+    padding: 1.75rem;
+  }
+
+  .signal-copy,
+  .signal-heading,
+  .signal-dashboard,
+  .signal-score,
+  .signal-chip,
+  .signal-final {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .signal-dashboard {
+    perspective: none;
+  }
+
+  .testimonials-scene .testimonial-card {
+    position: relative;
+    inset: auto;
+    min-height: 23rem;
+    margin-bottom: 1rem;
+  }
+
+  .testimonials-scene .testimonial-card blockquote {
+    font-size: 1.65rem;
+  }
+}
+
 .blog-content {
   margin: 0 auto;
   padding: 2rem 1rem;

@@ -18,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WHATSAPP =
   "https://api.whatsapp.com/send?phone=918368573451&text=Hello%2C%20I%27m%20interested%20in%20Critiquee.";
+const PLATFORM_LOGIN = "https://vendors.critiquee.com/login";
 
 const rotatingLines = [
   "Turn feedback into five-star growth",
@@ -84,6 +85,33 @@ const stats = [
   ["15 sec", "To collect a review"],
   ["24/7", "Reputation monitoring"],
   ["1", "Unified workspace"],
+];
+
+const testimonials = [
+  {
+    quote:
+      "Critiquee turned a scattered review process into our most reliable source of new business.",
+    name: "Arjun Mehta",
+    role: "Founder, The Urban Plate",
+    score: "4.9",
+    color: "#f6b80c",
+  },
+  {
+    quote:
+      "The AI replies sound like us, but our team now responds while the customer moment is still fresh.",
+    name: "Nisha Kapoor",
+    role: "Marketing Director, Aster Clinics",
+    score: "98%",
+    color: "#34e0a1",
+  },
+  {
+    quote:
+      "Our clients see the value immediately. It feels like a premium platform built around their brand.",
+    name: "Rohan Shah",
+    role: "Agency Partner, Growth Loop",
+    score: "3×",
+    color: "#b99cff",
+  },
 ];
 
 const networkPlatforms = [
@@ -188,6 +216,7 @@ function useCinematicMotion() {
     frame = requestAnimationFrame(raf);
     lenis.on("scroll", ScrollTrigger.update);
 
+    const media = gsap.matchMedia();
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((item) => {
         gsap.fromTo(
@@ -292,11 +321,86 @@ function useCinematicMotion() {
         .to(".growth-vendor", { xPercent: -16, yPercent: -7, rotate: -5 }, 0)
         .to(".growth-blog", { xPercent: 16, yPercent: 7, rotate: 5 }, 0)
         .to(".growth-core", { scale: 1.08, opacity: 0.45 }, 0);
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".signal-scene",
+            start: "top top",
+            end: "+=175%",
+            scrub: 1,
+            pin: true,
+          },
+        })
+        .fromTo(
+          ".signal-heading",
+          { y: 90, opacity: 0, filter: "blur(12px)" },
+          { y: 0, opacity: 1, filter: "blur(0px)", ease: "power3.out" },
+          0,
+        )
+        .to(".signal-copy", { xPercent: -115, opacity: 0 }, 0.32)
+        .to(".signal-dashboard", { scale: 1.04, rotateY: -8, rotateX: 5 }, 0.18)
+        .to(".signal-wave", { strokeDashoffset: 0 }, 0.3)
+        .to(".signal-score", { scale: 1.35, opacity: 1 }, 0.48)
+        .to(".signal-chip", { y: 0, opacity: 1, stagger: 0.08 }, 0.55)
+        .to(".signal-final", { y: 0, opacity: 1 }, 0.7);
+    });
+
+    media.add("(min-width: 768px)", () => {
+      const cards = gsap.utils.toArray<HTMLElement>(".testimonial-card");
+      gsap.set(cards.slice(1), { yPercent: 125, rotate: 10, opacity: 0 });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".testimonials-scene",
+            start: "top top",
+            end: "+=230%",
+            scrub: 1,
+            pin: true,
+          },
+        })
+        .fromTo(
+          ".testimonial-intro",
+          { y: 70, opacity: 0, filter: "blur(10px)" },
+          { y: 0, opacity: 1, filter: "blur(0px)" },
+          0,
+        )
+        .to(
+          cards[0],
+          { scale: 0.9, xPercent: -12, rotate: -7, opacity: 0.52 },
+          0.35,
+        )
+        .to(cards[1], { yPercent: 0, rotate: 0, opacity: 1 }, 0.35)
+        .to(
+          cards[1],
+          { scale: 0.9, xPercent: 12, rotate: 7, opacity: 0.52 },
+          0.63,
+        )
+        .to(cards[2], { yPercent: 0, rotate: 0, opacity: 1 }, 0.63)
+        .to(
+          ".testimonial-orb",
+          { scale: 1.45, rotate: 180, opacity: 0.85 },
+          0.1,
+        );
+    });
+    media.add("(max-width: 767px)", () => {
+      gsap.fromTo(
+        ".testimonial-card",
+        { y: 46, opacity: 0, rotate: 3 },
+        {
+          y: 0,
+          opacity: 1,
+          rotate: 0,
+          stagger: 0.14,
+          scrollTrigger: { trigger: ".testimonials-scene", start: "top 74%" },
+        },
+      );
     });
 
     return () => {
       cancelAnimationFrame(frame);
       ctx.revert();
+      media.revert();
       lenis.destroy();
     };
   }, []);
@@ -377,11 +481,12 @@ export default function Home() {
             <a href="#faq">FAQ</a>
           </div>
           <a
-            href={WHATSAPP}
+            href={PLATFORM_LOGIN}
             target="_blank"
+            rel="noopener noreferrer"
             className="hidden rounded-full bg-[#f6b80c] px-5 py-2.5 text-xs font-black uppercase tracking-wider text-[#071121] md:block"
           >
-            Start free trial
+            Visit platform
           </a>
           <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X /> : <Menu />}
@@ -399,10 +504,12 @@ export default function Home() {
               Results
             </a>
             <a
-              href={WHATSAPP}
+              href={PLATFORM_LOGIN}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-[#f6b80c] px-4 py-3 text-center text-[#071121]"
             >
-              START FREE TRIAL
+              VISIT PLATFORM
             </a>
           </div>
         )}
@@ -611,7 +718,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="growth-scene relative h-screen overflow-hidden bg-[#05070b] px-5 md:px-12 lg:px-16">
+      <section className="growth-scene relative min-h-screen overflow-hidden bg-[#05070b] px-5 py-20 md:h-screen md:px-12 md:py-0 lg:px-16">
         <div className="growth-core absolute left-1/2 top-1/2 z-0 grid h-56 w-56 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[#f6b80c]/30 bg-[#f6b80c]/10 text-center shadow-[0_0_140px_rgba(246,184,12,.22)]">
           <span className="text-sm font-black uppercase leading-5 tracking-[.18em] text-[#f6b80c]">
             One platform
@@ -619,7 +726,7 @@ export default function Home() {
             More growth
           </span>
         </div>
-        <div className="relative z-10 mx-auto grid h-full max-w-[1400px] items-center gap-8 lg:grid-cols-2">
+        <div className="relative z-10 mx-auto grid min-h-[calc(100svh-10rem)] max-w-[1400px] items-center gap-8 md:h-full lg:grid-cols-2">
           <article className="growth-vendor relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,#132a36,#0c1119_60%)] p-8 shadow-2xl md:p-12">
             <div className="absolute right-[-50px] top-[-50px] h-48 w-48 rounded-full bg-[#34e0a1]/20 blur-2xl" />
             <p className="text-xs font-black uppercase tracking-[.28em] text-[#34e0a1]">
@@ -646,6 +753,14 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            <a
+              href={PLATFORM_LOGIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-9 inline-flex items-center gap-2 rounded-full border border-[#34e0a1]/40 bg-[#34e0a1]/10 px-5 py-3 text-xs font-black uppercase tracking-[.14em] text-[#34e0a1] transition hover:bg-[#34e0a1] hover:text-[#071121]"
+            >
+              Visit platform <ArrowUpRight size={15} />
+            </a>
           </article>
           <article className="growth-blog relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,#241a46,#0c1119_60%)] p-8 shadow-2xl md:p-12">
             <div className="absolute right-[-50px] top-[-50px] h-48 w-48 rounded-full bg-[#a78bfa]/25 blur-2xl" />
@@ -674,6 +789,170 @@ export default function Home() {
               ))}
             </ul>
           </article>
+        </div>
+      </section>
+
+      <section className="signal-scene relative min-h-screen overflow-hidden bg-[#080c13] px-5 py-20 md:h-screen md:px-12 md:py-0 lg:px-16">
+        <div className="absolute inset-0 opacity-70 cinematic-grid" />
+        <div className="absolute left-[12%] top-[10%] h-80 w-80 rounded-full bg-[#2f7cf6]/15 blur-[110px]" />
+        <div className="absolute bottom-[-10%] right-[6%] h-96 w-96 rounded-full bg-[#f6b80c]/12 blur-[120px]" />
+        <div className="relative mx-auto grid min-h-[calc(100svh-10rem)] max-w-[1400px] items-center gap-12 md:h-full lg:grid-cols-[.8fr_1.2fr]">
+          <div className="signal-copy relative z-10">
+            <p className="signal-heading text-xs font-black uppercase tracking-[.32em] text-[#f6b80c]">
+              Intelligence in motion
+            </p>
+            <h2 className="signal-heading mt-8 text-5xl font-black uppercase leading-[.84] tracking-[-.06em] md:text-7xl">
+              Watch trust become your next advantage.
+            </h2>
+            <p className="signal-heading mt-8 max-w-xl text-lg leading-8 text-white/60">
+              Every rating, response and customer moment becomes a clear
+              signal—so your team can act before opportunities disappear.
+            </p>
+          </div>
+          <div className="signal-dashboard relative mx-auto w-full max-w-3xl [perspective:1200px]">
+            <div className="relative overflow-hidden rounded-[30px] border border-white/15 bg-[#101824]/85 p-5 shadow-[0_35px_100px_rgba(0,0,0,.5)] backdrop-blur-xl md:p-8">
+              <div className="flex items-center justify-between border-b border-white/10 pb-5 text-[10px] font-black uppercase tracking-[.22em] text-white/45">
+                <span>Reputation pulse</span>
+                <span className="text-[#34e0a1]">● Live</span>
+              </div>
+              <div className="mt-8 grid gap-5 sm:grid-cols-[1.1fr_.9fr]">
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <p className="text-xs font-bold text-white/45">
+                        Trust score
+                      </p>
+                      <strong className="signal-score mt-2 block text-6xl font-black tracking-[-.08em] text-[#f6b80c] opacity-0">
+                        94
+                      </strong>
+                    </div>
+                    <span className="rounded-full bg-[#34e0a1]/15 px-3 py-1 text-xs font-black text-[#34e0a1]">
+                      +18%
+                    </span>
+                  </div>
+                  <svg
+                    viewBox="0 0 460 130"
+                    className="mt-6 h-28 w-full overflow-visible"
+                  >
+                    <defs>
+                      <linearGradient id="signalGradient" x1="0" x2="1">
+                        <stop stopColor="#2f7cf6" />
+                        <stop offset="1" stopColor="#f6b80c" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="signal-wave"
+                      d="M0 104 C48 96 56 74 96 82 S148 22 195 52 S259 104 300 62 S368 21 460 8"
+                      fill="none"
+                      stroke="url(#signalGradient)"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                      strokeDasharray="650"
+                      strokeDashoffset="650"
+                    />
+                  </svg>
+                </div>
+                <div className="grid gap-3">
+                  {[
+                    ["New reviews", "28", "#2f7cf6"],
+                    ["Reply rate", "98%", "#34e0a1"],
+                    ["Reach", "42K", "#b99cff"],
+                  ].map(([label, value, color]) => (
+                    <div
+                      key={label}
+                      className="signal-chip translate-y-8 rounded-xl border border-white/10 bg-white/[.035] p-4 opacity-0"
+                    >
+                      <p className="text-[10px] font-black uppercase tracking-[.14em] text-white/45">
+                        {label}
+                      </p>
+                      <strong
+                        className="mt-1 block text-2xl font-black"
+                        style={{ color }}
+                      >
+                        {value}
+                      </strong>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="signal-final mt-5 flex items-center justify-between rounded-2xl border border-[#f6b80c]/20 bg-[#f6b80c]/[.07] p-4 text-sm opacity-0">
+                <span className="font-bold text-white/75">
+                  Your reputation is accelerating.
+                </span>
+                <span className="text-[#f6b80c]">↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="testimonials-scene relative min-h-screen overflow-hidden bg-[#05070b] px-5 py-24 md:h-screen md:py-0 md:px-12 lg:px-16">
+        <div className="testimonial-orb absolute left-1/2 top-1/2 h-[65vmin] w-[65vmin] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f6b80c]/20 bg-[#f6b80c]/[.045] shadow-[0_0_150px_rgba(246,184,12,.12)]" />
+        <div className="absolute inset-0 cinematic-grid opacity-30" />
+        <div className="relative mx-auto grid min-h-[80vh] max-w-[1400px] items-center gap-12 lg:grid-cols-[.72fr_1.28fr]">
+          <div className="testimonial-intro relative z-10">
+            <p className="text-xs font-black uppercase tracking-[.32em] text-[#f6b80c]">
+              Loved in the real world
+            </p>
+            <h2 className="mt-8 text-5xl font-black uppercase leading-[.84] tracking-[-.06em] md:text-7xl">
+              The kind of growth customers notice.
+            </h2>
+            <p className="mt-8 max-w-md text-lg leading-8 text-white/60">
+              The most convincing proof is a team that feels more in control of
+              every customer conversation.
+            </p>
+            <div className="mt-10 flex items-center gap-3 text-sm font-black uppercase tracking-[.16em] text-white/45">
+              <span className="text-[#f6b80c]">01</span>
+              <span className="h-px w-12 bg-white/20" />
+              <span>03 stories</span>
+            </div>
+          </div>
+          <div className="relative min-h-[460px] md:min-h-[540px]">
+            {testimonials.map((testimonial, index) => (
+              <article
+                key={testimonial.name}
+                className="testimonial-card absolute inset-x-0 top-0 flex min-h-[440px] flex-col justify-between rounded-[30px] border border-white/15 bg-[#101722]/90 p-7 shadow-[0_30px_80px_rgba(0,0,0,.45)] backdrop-blur-xl md:min-h-[510px] md:p-11"
+                style={{
+                  zIndex: index + 1,
+                  boxShadow: `inset 0 0 90px ${testimonial.color}12, 0 30px 80px rgba(0,0,0,.45)`,
+                }}
+              >
+                <div className="flex items-start justify-between">
+                  <span
+                    className="text-5xl font-black leading-none"
+                    style={{ color: testimonial.color }}
+                  >
+                    &ldquo;
+                  </span>
+                  <div className="rounded-2xl border border-white/10 px-4 py-3 text-right">
+                    <strong
+                      className="block text-2xl font-black"
+                      style={{ color: testimonial.color }}
+                    >
+                      {testimonial.score}
+                    </strong>
+                    <span className="text-[9px] font-black uppercase tracking-[.16em] text-white/45">
+                      reputation lift
+                    </span>
+                  </div>
+                </div>
+                <blockquote className="max-w-3xl text-[clamp(1.7rem,3.4vw,3.6rem)] font-black leading-[.94] tracking-[-.05em]">
+                  {testimonial.quote}
+                </blockquote>
+                <footer className="flex items-center justify-between border-t border-white/10 pt-6">
+                  <div>
+                    <p className="font-black uppercase tracking-[-.02em]">
+                      {testimonial.name}
+                    </p>
+                    <p className="mt-1 text-xs font-bold uppercase tracking-[.12em] text-white/45">
+                      {testimonial.role}
+                    </p>
+                  </div>
+                  <div className="flex gap-1 text-[#f6b80c]">★★★★★</div>
+                </footer>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
