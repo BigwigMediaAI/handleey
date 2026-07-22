@@ -509,7 +509,7 @@ export default function Home() {
             CRITIQUEE
           </a>
           <div className="hidden gap-7 text-xs font-bold uppercase tracking-[.16em] text-white/60 md:flex">
-            <a href="#features">Platform</a>
+            <a href="#platforms">Platform</a>
             <a href="#services">Solutions</a>
             <a href="#results">Results</a>
             <a href="#faq">FAQ</a>
@@ -528,7 +528,7 @@ export default function Home() {
         </nav>
         {menuOpen && (
           <div className="mx-2 mt-2 grid gap-5 rounded-2xl border border-white/10 bg-[#0d1119] p-6 text-sm font-bold">
-            <a onClick={() => setMenuOpen(false)} href="#features">
+            <a onClick={() => setMenuOpen(false)} href="#platforms">
               Platform
             </a>
             <a onClick={() => setMenuOpen(false)} href="#services">
@@ -617,10 +617,17 @@ export default function Home() {
         >
           A better way to be trusted
         </p>
-        <h2 className="relative mt-10 max-w-7xl text-[clamp(3.4rem,8vw,8.2rem)] font-black uppercase leading-[.84] tracking-[-.06em]">
-          {story.split("").map((letter, i) => (
-            <span className="story-letter inline-block origin-bottom" key={i}>
-              {letter === " " ? "\u00a0" : letter}
+        <h2 className="relative mt-10 max-w-7xl text-[clamp(3rem,8vw,8.2rem)] font-black uppercase leading-[.84] tracking-[-.06em] md:text-[clamp(3.4rem,8vw,8.2rem)]">
+          {story.split(" ").map((word, wordIndex) => (
+            <span className="mr-[.22em] inline-block whitespace-nowrap last:mr-0" key={word}>
+              {word.split("").map((letter, letterIndex) => (
+                <span
+                  className="story-letter inline-block origin-bottom"
+                  key={`${wordIndex}-${letterIndex}`}
+                >
+                  {letter}
+                </span>
+              ))}
             </span>
           ))}
         </h2>
@@ -675,7 +682,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="platforms-scene relative overflow-hidden bg-[#070b12] px-5 py-28 md:px-12 lg:px-16">
+      <section
+        id="platforms"
+        className="platforms-scene relative overflow-hidden bg-[#070b12] px-5 py-28 md:px-12 lg:px-16"
+      >
         <div className="absolute inset-0 cinematic-grid opacity-30" />
         <div className="absolute left-1/2 top-1/2 h-[48rem] w-[48rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2f7cf6]/10 blur-[130px]" />
         <div className="relative mx-auto grid max-w-[1400px] items-center gap-14 lg:grid-cols-[.82fr_1.18fr]">
