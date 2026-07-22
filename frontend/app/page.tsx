@@ -266,25 +266,6 @@ function useCinematicMotion() {
         );
       });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".hero-scene",
-            start: "top top",
-            end: "+=145%",
-            scrub: 1,
-            pin: true,
-          },
-        })
-        .to(
-          ".hero-copy",
-          { y: -130, opacity: 0, scale: 0.76, filter: "blur(14px)" },
-          0,
-        )
-        .to(".hero-network", { scale: 1.22, y: 105, opacity: 0.35 }, 0)
-        .to(".hero-orbit", { rotate: 120, scale: 1.28 }, 0)
-        .to(".hero-next", { y: 0, opacity: 1 }, 0.38);
-
       gsap.fromTo(
         ".story-letter",
         { opacity: 0, y: 70, rotateX: -85 },
@@ -303,17 +284,6 @@ function useCinematicMotion() {
         },
       );
 
-      gsap.to(".services-track", {
-        xPercent: -78,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".services-scene",
-          start: "top top",
-          end: "+=360%",
-          scrub: 1,
-          pin: true,
-        },
-      });
       gsap.to(".globe-line", {
         strokeDashoffset: 0,
         stagger: 0.08,
@@ -339,6 +309,40 @@ function useCinematicMotion() {
           },
         },
       );
+
+    });
+
+    media.add("(min-width: 768px)", () => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".hero-scene",
+            start: "top top",
+            end: "+=145%",
+            scrub: 1,
+            pin: true,
+          },
+        })
+        .to(
+          ".hero-copy",
+          { y: -130, opacity: 0, scale: 0.76, filter: "blur(14px)" },
+          0,
+        )
+        .to(".hero-network", { scale: 1.22, y: 105, opacity: 0.35 }, 0)
+        .to(".hero-orbit", { rotate: 120, scale: 1.28 }, 0)
+        .to(".hero-next", { y: 0, opacity: 1 }, 0.38);
+
+      gsap.to(".services-track", {
+        xPercent: -78,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".services-scene",
+          start: "top top",
+          end: "+=360%",
+          scrub: 1,
+          pin: true,
+        },
+      });
 
       gsap
         .timeline({
@@ -376,9 +380,7 @@ function useCinematicMotion() {
         .to(".signal-score", { scale: 1.35, opacity: 1 }, 0.48)
         .to(".signal-chip", { y: 0, opacity: 1, stagger: 0.08 }, 0.55)
         .to(".signal-final", { y: 0, opacity: 1 }, 0.7);
-    });
 
-    media.add("(min-width: 768px)", () => {
       const cards = gsap.utils.toArray<HTMLElement>(".testimonial-card");
       gsap.set(cards.slice(1), { yPercent: 125, rotate: 10, opacity: 0 });
       gsap
@@ -706,15 +708,15 @@ export default function Home() {
             </div>
           </div>
           <div data-reveal className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-[30px] border border-white/10 bg-[#101722]/80 p-4 shadow-[0_30px_100px_rgba(0,0,0,.45)] backdrop-blur-xl md:p-7">
-            <div className="flex items-center justify-between border-b border-white/10 pb-5">
-              <div>
+            <div className="platform-panel-header flex items-start justify-between gap-3 border-b border-white/10 pb-5">
+              <div className="min-w-0">
                 <p className="text-[10px] font-black uppercase tracking-[.22em] text-white/45">Platform coverage</p>
                 <p className="mt-1 text-sm font-bold text-white/80">All customer conversations, in motion</p>
               </div>
-              <span className="rounded-full border border-[#34e0a1]/25 bg-[#34e0a1]/10 px-3 py-1 text-[9px] font-black uppercase tracking-[.14em] text-[#34e0a1]">Live sync</span>
+              <span className="shrink-0 rounded-full border border-[#34e0a1]/25 bg-[#34e0a1]/10 px-3 py-1 text-[9px] font-black uppercase tracking-[.14em] text-[#34e0a1]">Live sync</span>
             </div>
             <div className="platform-marquee mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {[...supportedPlatforms, ...supportedPlatforms].map(({ name, icon: Icon, mark, color }, index) => (
+              {supportedPlatforms.map(({ name, icon: Icon, mark, color }, index) => (
                 <div key={`${name}-${index}`} className="platform-chip flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[.035] px-3 py-3">
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-black/25 text-base" style={{ color }}>
                     {Icon ? <Icon /> : <span className="text-[9px] font-black tracking-[-.08em]">{mark}</span>}
