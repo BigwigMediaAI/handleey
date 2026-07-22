@@ -12,6 +12,17 @@ import {
   FaLinkedinIn,
   FaTripadvisor,
 } from "react-icons/fa";
+import {
+  SiAirbnb,
+  SiExpedia,
+  SiFoursquare,
+  SiReddit,
+  SiTrustpilot,
+  SiX,
+  SiYoutube,
+  SiYelp,
+  SiZomato,
+} from "react-icons/si";
 import { useEffect, useMemo, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -21,12 +32,33 @@ const WHATSAPP =
 const PLATFORM_LOGIN = "https://vendors.critiquee.com/login";
 
 const rotatingLines = [
+  "Built for large-scale, multi-location businesses",
   "Turn feedback into five-star growth",
   "Manage every review from one place",
   "Reply faster with AI assistance",
   "Build trust before customers arrive",
   "Publish useful blogs on autopilot",
   "Launch your own white-label ORM platform",
+];
+
+const supportedPlatforms = [
+  { name: "Google", icon: FaGoogle, color: "#4285f4" },
+  { name: "Yelp", icon: SiYelp, color: "#ff1a1a" },
+  { name: "Trustpilot", icon: SiTrustpilot, color: "#00b67a" },
+  { name: "Foursquare", icon: SiFoursquare, color: "#f94877" },
+  { name: "Zomato", icon: SiZomato, color: "#e23744" },
+  { name: "Justdial", mark: "JD", color: "#f37a20" },
+  { name: "Facebook", icon: FaFacebookF, color: "#1877f2" },
+  { name: "Instagram", icon: FaInstagram, color: "#e94d8a" },
+  { name: "LinkedIn", icon: FaLinkedinIn, color: "#0a66c2" },
+  { name: "X", icon: SiX, color: "#ffffff" },
+  { name: "YouTube", icon: SiYoutube, color: "#ff0000" },
+  { name: "Reddit", icon: SiReddit, color: "#ff4500" },
+  { name: "Tripadvisor", icon: FaTripadvisor, color: "#34e0a1" },
+  { name: "Airbnb", icon: SiAirbnb, color: "#ff5a5f" },
+  { name: "OpenTable", mark: "OT", color: "#da3743" },
+  { name: "Agoda", mark: "agoda", color: "#7453db" },
+  { name: "Expedia", icon: SiExpedia, color: "#fcbf14" },
 ];
 
 const services = [
@@ -526,7 +558,7 @@ export default function Home() {
         <div className="hero-copy relative z-10 grid min-h-[700px] place-items-center px-5 pb-28 pt-32 text-center md:min-h-screen">
           <div>
             <p className="mb-6 text-xs font-black uppercase tracking-[.34em] text-[#f6b80c]">
-              The reputation growth platform
+              Built for large-scale, multi-location business management
             </p>
             <h1 className="mx-auto max-w-6xl text-[clamp(3rem,8vw,8rem)] font-black uppercase leading-[.82] tracking-[-.06em]">
               Turn every
@@ -637,6 +669,61 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-6 text-white/55">{text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="platforms-scene relative overflow-hidden bg-[#070b12] px-5 py-28 md:px-12 lg:px-16">
+        <div className="absolute inset-0 cinematic-grid opacity-30" />
+        <div className="absolute left-1/2 top-1/2 h-[48rem] w-[48rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2f7cf6]/10 blur-[130px]" />
+        <div className="relative mx-auto grid max-w-[1400px] items-center gap-14 lg:grid-cols-[.82fr_1.18fr]">
+          <div data-reveal>
+            <p className="text-xs font-black uppercase tracking-[.32em] text-[#f6b80c]">
+              Everywhere your customers speak
+            </p>
+            <h2 className="mt-8 text-5xl font-black uppercase leading-[.84] tracking-[-.06em] md:text-7xl">
+              One team.<br />
+              Every location.<br />
+              Every platform.
+            </h2>
+            <p className="mt-8 max-w-xl text-lg leading-8 text-white/60">
+              Bring reviews, messages and social signals from your entire
+              business footprint into one live command centre. Scale from one
+              storefront to hundreds of locations without losing the local
+              context that customers expect.
+            </p>
+            <div className="mt-10 grid max-w-lg grid-cols-3 border-y border-white/10 py-5 text-center">
+              {[
+                ["50+", "Channels"],
+                ["∞", "Locations"],
+                ["1", "Live view"],
+              ].map(([value, label]) => (
+                <div key={label} className="border-r border-white/10 last:border-r-0">
+                  <strong className="block text-3xl font-black text-[#f6b80c]">{value}</strong>
+                  <span className="mt-1 block text-[9px] font-black uppercase tracking-[.16em] text-white/45">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div data-reveal className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-[30px] border border-white/10 bg-[#101722]/80 p-4 shadow-[0_30px_100px_rgba(0,0,0,.45)] backdrop-blur-xl md:p-7">
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[.22em] text-white/45">Platform coverage</p>
+                <p className="mt-1 text-sm font-bold text-white/80">All customer conversations, in motion</p>
+              </div>
+              <span className="rounded-full border border-[#34e0a1]/25 bg-[#34e0a1]/10 px-3 py-1 text-[9px] font-black uppercase tracking-[.14em] text-[#34e0a1]">Live sync</span>
+            </div>
+            <div className="platform-marquee mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {[...supportedPlatforms, ...supportedPlatforms].map(({ name, icon: Icon, mark, color }, index) => (
+                <div key={`${name}-${index}`} className="platform-chip flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[.035] px-3 py-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-black/25 text-base" style={{ color }}>
+                    {Icon ? <Icon /> : <span className="text-[9px] font-black tracking-[-.08em]">{mark}</span>}
+                  </span>
+                  <span className="truncate text-xs font-black tracking-[-.02em] text-white/75">{name}</span>
+                </div>
+              ))}
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#101722] to-transparent" />
           </div>
         </div>
       </section>

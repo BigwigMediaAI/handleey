@@ -97,12 +97,38 @@ body {
   animation: orbit-counter 26s linear infinite;
 }
 
+.platform-marquee {
+  animation: platform-scroll 26s linear infinite;
+}
+
+.platform-chip {
+  animation: platform-float 4.5s ease-in-out infinite;
+}
+
+.platform-chip:nth-child(3n + 2) {
+  animation-delay: -1.5s;
+}
+
+.platform-chip:nth-child(3n) {
+  animation-delay: -3s;
+}
+
 @keyframes orbit {
   to { transform: rotate(360deg); }
 }
 
 @keyframes orbit-counter {
   to { transform: rotate(-360deg); }
+}
+
+@keyframes platform-scroll {
+  0%, 10% { transform: translateY(0); }
+  46%, 56% { transform: translateY(-38%); }
+  92%, 100% { transform: translateY(-50%); }
+}
+
+@keyframes platform-float {
+  50% { transform: translateY(-4px); border-color: rgba(246,184,12,.4); }
 }
 
 @media (prefers-reduced-motion: reduce) {
